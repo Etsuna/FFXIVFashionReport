@@ -466,14 +466,11 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Weapon_imgSelectedIcon" Width="24" Height="24" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <!-- Réduire la taille de l'image ici -->
-                <TextBlock x:Name="Dye_Weapon_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="12"/>
+                <Image x:Name="Dye_Weapon_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Weapon_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
             <Button x:Name="Dye_Weapon_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Weapon_btnRemove_Click" />
         </StackPanel>
-
-
 
         <!--Dye_Head-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,211,0,503" Width="133" RenderTransformOrigin="0.5,0.5">
@@ -501,16 +498,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Head_imgSelectedIcon" Width="{Binding ElementName=Dye_Head, Path=ActualHeight}" Height="{Binding ElementName=Dye_Head, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Head_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Head_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Head_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Head_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Head_btnRemove_Click" />
+            <Button x:Name="Dye_Head_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Head_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Body-->
@@ -539,16 +536,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Body_imgSelectedIcon" Width="{Binding ElementName=Dye_Body, Path=ActualHeight}" Height="{Binding ElementName=Dye_Body, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Body_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Body_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Body_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Body_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Body_btnRemove_Click" />
+            <Button x:Name="Dye_Body_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Body_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Hands-->
@@ -577,16 +574,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Hands_imgSelectedIcon" Width="{Binding ElementName=Dye_Hands, Path=ActualHeight}" Height="{Binding ElementName=Dye_Hands, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Hands_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Hands_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Hands_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Hands_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Hands_btnRemove_Click" />
+            <Button x:Name="Dye_Hands_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Hands_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Legs-->
@@ -615,16 +612,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Legs_imgSelectedIcon" Width="{Binding ElementName=Dye_Legs, Path=ActualHeight}" Height="{Binding ElementName=Dye_Legs, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Legs_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Legs_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Legs_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Legs_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Legs_btnRemove_Click" />
+            <Button x:Name="Dye_Legs_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Legs_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Shoes-->
@@ -653,16 +650,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Shoes_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Shoes_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Shoes_imgSelectedIcon" Width="{Binding ElementName=Dye_Shoes, Path=ActualHeight}" Height="{Binding ElementName=Dye_Shoes, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Shoes_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Shoes_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Shoes_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Shoes_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Shoes_btnRemove_Click" />
+            <Button x:Name="Dye_Shoes_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Shoes_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Earrings-->
@@ -691,16 +688,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Earrings_imgSelectedIcon" Width="{Binding ElementName=Dye_Earrings, Path=ActualHeight}" Height="{Binding ElementName=Dye_Earrings, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Earrings_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Earrings_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Earrings_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Earrings_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Earrings_btnRemove_Click" />
+            <Button x:Name="Dye_Earrings_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Earrings_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Necklace-->
@@ -729,16 +726,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Necklace_imgSelectedIcon" Width="{Binding ElementName=Dye_Necklace, Path=ActualHeight}" Height="{Binding ElementName=Dye_Necklace, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Necklace_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Necklace_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Necklace_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Necklace_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Necklace_btnRemove_Click" />
+            <Button x:Name="Dye_Necklace_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Necklace_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Bracelets-->
@@ -767,16 +764,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Bracelets_imgSelectedIcon" Width="{Binding ElementName=Dye_Bracelets, Path=ActualHeight}" Height="{Binding ElementName=Dye_Bracelets, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Bracelets_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Bracelets_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Bracelets_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Bracelets_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Bracelets_btnRemove_Click" />
+            <Button x:Name="Dye_Bracelets_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Bracelets_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Ring1-->
@@ -805,16 +802,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Ring1_imgSelectedIcon" Width="{Binding ElementName=Dye_Ring1, Path=ActualHeight}" Height="{Binding ElementName=Dye_Ring1, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Ring1_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Ring1_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Ring1_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Ring1_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Ring1_btnRemove_Click" />
+            <Button x:Name="Dye_Ring1_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Ring1_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Ring2-->
@@ -843,16 +840,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Dye_Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Ring2_imgSelectedIcon" Width="{Binding ElementName=Dye_Ring2, Path=ActualHeight}" Height="{Binding ElementName=Dye_Ring2, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Ring2_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Dye_Ring2_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Ring2_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Ring2_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Ring2_btnRemove_Click" />
+            <Button x:Name="Dye_Ring2_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Ring2_btnRemove_Click" />
         </StackPanel>
         <!--#endregion-->
 
@@ -896,7 +893,8 @@
                 </Style>
             </Button.Style>
         </Button>
-        <TextBlock HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="21" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="18" Text="Fashion Report #&#xD;&#xA;"/>
-        <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="631,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" FontFamily="Great Vibes" FontSize="18" Width="60" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
+        <TextBlock HorizontalAlignment="Left" Margin="486,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="27" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="22" Text="Fashion Report #&#xD;&#xA;"/>
+        <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="634,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontFamily="Great Vibes" FontSize="22" Width="76" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
+        <TextBlock HorizontalAlignment="Left" Margin="636,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="72" FontFamily="Great Vibes" FontSize="36"><Run Language="fr-fr" Text="Dye"/><LineBreak/><Run Language="fr-fr"/></TextBlock>
     </Grid>
 </Window>

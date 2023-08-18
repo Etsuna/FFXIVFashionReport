@@ -784,7 +784,7 @@ namespace FFXIVFashionReport
                     Weapon_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -792,7 +792,7 @@ namespace FFXIVFashionReport
                     Head_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -800,7 +800,7 @@ namespace FFXIVFashionReport
                     Body_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -808,7 +808,7 @@ namespace FFXIVFashionReport
                     Hands_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -816,7 +816,7 @@ namespace FFXIVFashionReport
                     Legs_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -824,7 +824,7 @@ namespace FFXIVFashionReport
                     Shoes_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -832,7 +832,7 @@ namespace FFXIVFashionReport
                     Earrings_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -840,7 +840,7 @@ namespace FFXIVFashionReport
                     Necklace_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -848,7 +848,7 @@ namespace FFXIVFashionReport
                     Bracelets_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -856,7 +856,7 @@ namespace FFXIVFashionReport
                     Ring1_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -864,7 +864,7 @@ namespace FFXIVFashionReport
                     Ring2_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -872,7 +872,7 @@ namespace FFXIVFashionReport
                     Dye_Weapon_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -880,7 +880,7 @@ namespace FFXIVFashionReport
                     Dye_Head_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -888,7 +888,7 @@ namespace FFXIVFashionReport
                     Dye_Body_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -896,7 +896,7 @@ namespace FFXIVFashionReport
                     Dye_Hands_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -904,7 +904,7 @@ namespace FFXIVFashionReport
                     Dye_Legs_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -912,7 +912,7 @@ namespace FFXIVFashionReport
                     Dye_Shoes_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -920,7 +920,7 @@ namespace FFXIVFashionReport
                     Dye_Earrings_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -928,7 +928,7 @@ namespace FFXIVFashionReport
                     Dye_Necklace_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -936,7 +936,7 @@ namespace FFXIVFashionReport
                     Dye_Bracelets_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -944,7 +944,7 @@ namespace FFXIVFashionReport
                     Dye_Ring1_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -952,7 +952,7 @@ namespace FFXIVFashionReport
                     Dye_Ring2_Results.Add(new Item
                     {
                         ID = item.ID,
-                        Name = BreakNameIntoMultipleLines(textBox, item.Name),
+                        Name = item.Name,
                         Icon = item.Icon
                     });
                     break;
@@ -1274,12 +1274,17 @@ namespace FFXIVFashionReport
             var textBox = FindName($"{Equipment}_txtSelectedName") as TextBlock;
             if (textBox != null)
             {
+                var dyeCheck = false;
                 var key = $"{Equipment}{language}";
                 if (listName.TryGetValue(key, out string value))
                 {
+                    if (textBox.Name.Contains("Dye"))
+                    {
+                        dyeCheck = true;
+                    }
                     byte[] bytes = Encoding.UTF8.GetBytes(value);
                     string searchText = Encoding.UTF8.GetString(bytes);
-                    textBox.Text = BreakNameIntoMultipleLines(null, searchText);
+                    textBox.Text = BreakNameIntoMultipleLines(dyeCheck, searchText);
                 }
             }
         }
@@ -1369,10 +1374,10 @@ namespace FFXIVFashionReport
             UpdateSelectedResultUI(image, textBlock, stackPanel, textBox, popup, _selectedItem);
         }
 
-        private string BreakNameIntoMultipleLines(TextBox textBox, string name)
+        private string BreakNameIntoMultipleLines(bool dyeCheck, string name)
         {
-            int maxLineLength = 0;
-            if (textBox != null && textBox.Name.Contains("Dye"))
+            int maxLineLength;
+            if (dyeCheck)
             {
                 maxLineLength = 10;
             }
@@ -1395,6 +1400,12 @@ namespace FFXIVFashionReport
                 int lineLength = Math.Min(maxLineLength, remainingLength);
 
                 int lastSpaceIndex = name.LastIndexOf(' ', currentIndex + lineLength - 1, lineLength);
+                int lastHyphenIndex = name.LastIndexOf('-', currentIndex + lineLength - 1, lineLength);
+
+                if (lastHyphenIndex > lastSpaceIndex)
+                {
+                    lastSpaceIndex = lastHyphenIndex;
+                }
 
                 if (lastSpaceIndex <= currentIndex)
                 {
@@ -1404,7 +1415,7 @@ namespace FFXIVFashionReport
                 result.AppendLine(name.Substring(currentIndex, lastSpaceIndex - currentIndex));
                 currentIndex = lastSpaceIndex + 1;
 
-                while (currentIndex < name.Length && name[currentIndex] == ' ')
+                while (currentIndex < name.Length && (name[currentIndex] == ' ' || name[currentIndex] == '-'))
                 {
                     currentIndex++;
                 }
@@ -1413,12 +1424,18 @@ namespace FFXIVFashionReport
             return result.ToString().Trim();
         }
 
+
         private void UpdateSelectedResultUI(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, Item _selectedItem)
         {
             if (_selectedItem != null)
             {
+                var dyeCheck = false;
                 image.Source = new BitmapImage(new Uri(_selectedItem.IconUrl));
-                textBlock.Text = _selectedItem.Name;
+                if(textBlock.Name.Contains("Dye"))
+                {
+                    dyeCheck = true;
+                }
+                textBlock.Text = BreakNameIntoMultipleLines(dyeCheck, _selectedItem.Name);
                 stackPanel.Visibility = Visibility.Visible;
 
                 Point txtSearchTermPosition = textBox.TranslatePoint(new Point(0, 0), this);
