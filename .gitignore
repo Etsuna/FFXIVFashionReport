@@ -4,6 +4,7 @@
 # Compiled files
 bin/
 obj/
+release/
 
 # User-specific files
 .vscode/
