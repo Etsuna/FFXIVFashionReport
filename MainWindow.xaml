@@ -443,7 +443,36 @@
         <TextBlock x:Name="LanguageTextBlock" HorizontalAlignment="Left" Margin="52,13,0,0" TextWrapping="Wrap" Text="Language:" VerticalAlignment="Top" FontSize="12"/>
 
         <!--Save-->
-        <Button x:Name="Make_Fashion_Report" Content="Make Fashion Report" HorizontalAlignment="Left" Margin="523,655,0,0" VerticalAlignment="Top" Height="43" Width="161" Click="MakeFashionReport_btnRemove_Click"/>
+        <Button x:Name="Make_Fashion_Report"
+        Content="Make Fashion Report"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Top"
+        Height="43"
+        Width="166"
+        Click="MakeFashionReport_btnRemove_Click"
+        Background="#FFC5BEA9"
+        Foreground="Black"
+        BorderBrush="#FF978565"
+        BorderThickness="2"
+        Margin="0,656,0,0" FontFamily="Great Vibes" FontSize="18" FontWeight="Bold">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="10">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
         <TextBlock HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="21" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="18" Text="Fashion Report #&#xD;&#xA;"/>
         <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="631,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" FontFamily="Great Vibes" FontSize="18" Width="60" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
     </Grid>
