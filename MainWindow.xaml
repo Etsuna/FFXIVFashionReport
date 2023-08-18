@@ -1,0 +1,449 @@
+﻿<Window x:Class="FFXIVFashionReport.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FFXIV Fashion Report Generator" Height="795" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="Background/FashionReportImg.png" Width="1200"/>
+
+        <!--Sword-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,126,0,588" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Sword" Width="294" KeyDown="Sword_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Sword_Popup" PlacementTarget="{Binding ElementName=Sword}" Placement="Bottom">
+            <ListView x:Name="Sword_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Sword_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Sword_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Sword_imgSelectedIcon" Width="{Binding ElementName=Sword, Path=ActualHeight}" Height="{Binding ElementName=Sword, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Sword_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Sword_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Sword_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Head-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,211,0,503" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Head" Width="294" KeyDown="Head_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Head_Popup" PlacementTarget="{Binding ElementName=Head}" Placement="Bottom">
+            <ListView x:Name="Head_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Head_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Head_imgSelectedIcon" Width="{Binding ElementName=Head, Path=ActualHeight}" Height="{Binding ElementName=Head, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Head_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Head_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Head_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Body-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,296,0,418" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Body" Width="294" KeyDown="Body_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Body_Popup" PlacementTarget="{Binding ElementName=Body}" Placement="Bottom">
+            <ListView x:Name="Body_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Body_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Body_imgSelectedIcon" Width="{Binding ElementName=Body, Path=ActualHeight}" Height="{Binding ElementName=Body, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Body_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Body_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Body_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Hands-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,381,0,333" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Hands" Width="294" KeyDown="Hands_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Hands_Popup" PlacementTarget="{Binding ElementName=Hands}" Placement="Bottom">
+            <ListView x:Name="Hands_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Hands_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Hands_imgSelectedIcon" Width="{Binding ElementName=Hands, Path=ActualHeight}" Height="{Binding ElementName=Hands, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Hands_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Hands_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Hands_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Legs-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,467,0,247" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Legs" Width="294" KeyDown="Legs_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Legs_Popup" PlacementTarget="{Binding ElementName=Legs}" Placement="Bottom">
+            <ListView x:Name="Legs_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Legs_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Legs_imgSelectedIcon" Width="{Binding ElementName=Legs, Path=ActualHeight}" Height="{Binding ElementName=Legs, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Legs_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Legs_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Legs_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Shoes-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,554,0,160" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Shoes" Width="294" KeyDown="Shoes_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Shoes_Popup" PlacementTarget="{Binding ElementName=Shoes}" Placement="Bottom">
+            <ListView x:Name="Shoes_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Shoes_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Shoes_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Shoes_imgSelectedIcon" Width="{Binding ElementName=Shoes, Path=ActualHeight}" Height="{Binding ElementName=Shoes, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Shoes_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Shoes_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Shoes_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Earrings-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="855,206,0,509" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Earrings" Width="294" KeyDown="Earrings_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Earrings_Popup" PlacementTarget="{Binding ElementName=Earrings}" Placement="Bottom">
+            <ListView x:Name="Earrings_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Earrings_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Earrings_imgSelectedIcon" Width="{Binding ElementName=Earrings, Path=ActualHeight}" Height="{Binding ElementName=Earrings, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Earrings_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Earrings_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Earrings_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Necklace-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="855,293,0,421" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Necklace" Width="294" KeyDown="Necklace_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Necklace_Popup" PlacementTarget="{Binding ElementName=Necklace}" Placement="Bottom">
+            <ListView x:Name="Necklace_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Necklace_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Necklace_imgSelectedIcon" Width="{Binding ElementName=Necklace, Path=ActualHeight}" Height="{Binding ElementName=Necklace, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Necklace_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Necklace_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Necklace_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Bracelets-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="855,380,0,334" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Bracelets" Width="294" KeyDown="Bracelets_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Bracelets_Popup" PlacementTarget="{Binding ElementName=Bracelets}" Placement="Bottom">
+            <ListView x:Name="Bracelets_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Bracelets_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Bracelets_imgSelectedIcon" Width="{Binding ElementName=Bracelets, Path=ActualHeight}" Height="{Binding ElementName=Bracelets, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Bracelets_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Bracelets_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Bracelets_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Ring1-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="856,466,0,245" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Ring1" Width="294" KeyDown="Ring1_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Ring1_Popup" PlacementTarget="{Binding ElementName=Ring1}" Placement="Bottom">
+            <ListView x:Name="Ring1_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Ring1_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Ring1_imgSelectedIcon" Width="{Binding ElementName=Ring1, Path=ActualHeight}" Height="{Binding ElementName=Ring1, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Ring1_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Ring1_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Ring1_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Ring2-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="856,553,0,158" Width="294" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Ring2" Width="294" KeyDown="Ring2_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Ring2_Popup" PlacementTarget="{Binding ElementName=Ring2}" Placement="Bottom">
+            <ListView x:Name="Ring2_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Ring2_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Ring2_imgSelectedIcon" Width="{Binding ElementName=Ring2, Path=ActualHeight}" Height="{Binding ElementName=Ring2, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Ring2_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Ring2_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Ring2_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Languages-->
+        <ComboBox x:Name="cmbLanguages" SelectedIndex="0" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="41">
+            <ComboBoxItem Content="en"/>
+            <ComboBoxItem Content="fr"/>
+            <ComboBoxItem Content="de"/>
+            <ComboBoxItem Content="ja"/>
+        </ComboBox>
+        <TextBlock x:Name="LanguageTextBlock" HorizontalAlignment="Left" Margin="52,13,0,0" TextWrapping="Wrap" Text="Language:" VerticalAlignment="Top" FontSize="12"/>
+
+        <!--Save-->
+        <Button x:Name="Make_Fashion_Report" Content="Make Fashion Report" HorizontalAlignment="Left" Margin="523,655,0,0" VerticalAlignment="Top" Height="43" Width="161" Click="MakeFashionReport_btnRemove_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="21" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="18" Text="Fashion Report #&#xD;&#xA;"/>
+        <TextBox HorizontalAlignment="Left" Margin="631,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" FontFamily="Great Vibes" FontSize="18" Width="60" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
+    </Grid>
+</Window>
