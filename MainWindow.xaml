@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <Image Source="Background/FashionReportImg.png" Width="1200"/>
-
+        <!--#region Equipment-->
         <!--Weapon-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,126,0,588" Width="294" RenderTransformOrigin="0.5,0.5">
             <TextBox x:Name="Weapon" Width="294" KeyDown="Weapon_KeyDown" Height="64" FontSize="24" />
@@ -432,6 +432,426 @@
             </Grid>
             <Button x:Name="Ring2_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Ring2_btnRemove_Click" />
         </StackPanel>
+        <!--#endregion-->
+        <!--#region Dye-->
+        <!--Dye_Weapon-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,126,0,588" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Weapon" Width="133" KeyDown="Dye_Weapon_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Weapon_Popup" PlacementTarget="{Binding ElementName=Dye_Weapon}" Placement="Bottom">
+            <ListView x:Name="Dye_Weapon_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Weapon_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Weapon_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Weapon_imgSelectedIcon" Width="{Binding ElementName=Dye_Weapon, Path=ActualHeight}" Height="{Binding ElementName=Dye_Weapon, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Weapon_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Weapon_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Weapon_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Head-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,211,0,503" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Head" Width="133" KeyDown="Dye_Head_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Head_Popup" PlacementTarget="{Binding ElementName=Dye_Head}" Placement="Bottom">
+            <ListView x:Name="Dye_Head_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Head_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Head_imgSelectedIcon" Width="{Binding ElementName=Dye_Head, Path=ActualHeight}" Height="{Binding ElementName=Dye_Head, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Head_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Head_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Head_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Body-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,296,0,418" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Body" Width="133" KeyDown="Dye_Body_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Body_Popup" PlacementTarget="{Binding ElementName=Dye_Body}" Placement="Bottom">
+            <ListView x:Name="Dye_Body_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Body_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Body_imgSelectedIcon" Width="{Binding ElementName=Dye_Body, Path=ActualHeight}" Height="{Binding ElementName=Dye_Body, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Body_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Body_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Body_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Hands-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,381,0,333" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Hands" Width="133" KeyDown="Dye_Hands_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Hands_Popup" PlacementTarget="{Binding ElementName=Dye_Hands}" Placement="Bottom">
+            <ListView x:Name="Dye_Hands_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Hands_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Hands_imgSelectedIcon" Width="{Binding ElementName=Dye_Hands, Path=ActualHeight}" Height="{Binding ElementName=Dye_Hands, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Hands_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Hands_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Hands_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Legs-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,467,0,247" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Legs" Width="133" KeyDown="Dye_Legs_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Legs_Popup" PlacementTarget="{Binding ElementName=Dye_Legs}" Placement="Bottom">
+            <ListView x:Name="Dye_Legs_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Legs_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Legs_imgSelectedIcon" Width="{Binding ElementName=Dye_Legs, Path=ActualHeight}" Height="{Binding ElementName=Dye_Legs, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Legs_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Legs_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Legs_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Shoes-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,548,0,166" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Shoes" Width="133" KeyDown="Dye_Shoes_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Shoes_Popup" PlacementTarget="{Binding ElementName=Dye_Shoes}" Placement="Bottom">
+            <ListView x:Name="Dye_Shoes_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Shoes_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Shoes_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Shoes_imgSelectedIcon" Width="{Binding ElementName=Dye_Shoes, Path=ActualHeight}" Height="{Binding ElementName=Dye_Shoes, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Shoes_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Shoes_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Shoes_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Earrings-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="605,211,0,504" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Earrings" Width="133" KeyDown="Dye_Earrings_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Earrings_Popup" PlacementTarget="{Binding ElementName=Dye_Earrings}" Placement="Bottom">
+            <ListView x:Name="Dye_Earrings_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Earrings_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Earrings_imgSelectedIcon" Width="{Binding ElementName=Dye_Earrings, Path=ActualHeight}" Height="{Binding ElementName=Dye_Earrings, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Earrings_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Earrings_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Earrings_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Necklace-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="605,296,0,418" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Necklace" Width="133" KeyDown="Dye_Necklace_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Necklace_Popup" PlacementTarget="{Binding ElementName=Dye_Necklace}" Placement="Bottom">
+            <ListView x:Name="Dye_Necklace_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Necklace_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Necklace_imgSelectedIcon" Width="{Binding ElementName=Dye_Necklace, Path=ActualHeight}" Height="{Binding ElementName=Dye_Necklace, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Necklace_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Necklace_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Necklace_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Bracelets-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="605,381,0,333" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Bracelets" Width="133" KeyDown="Dye_Bracelets_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Bracelets_Popup" PlacementTarget="{Binding ElementName=Dye_Bracelets}" Placement="Bottom">
+            <ListView x:Name="Dye_Bracelets_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Bracelets_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Bracelets_imgSelectedIcon" Width="{Binding ElementName=Dye_Bracelets, Path=ActualHeight}" Height="{Binding ElementName=Dye_Bracelets, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Bracelets_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Bracelets_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Bracelets_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Ring1-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="605,467,0,244" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Ring1" Width="133" KeyDown="Dye_Ring1_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Ring1_Popup" PlacementTarget="{Binding ElementName=Dye_Ring1}" Placement="Bottom">
+            <ListView x:Name="Dye_Ring1_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Ring1_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Ring1_imgSelectedIcon" Width="{Binding ElementName=Dye_Ring1, Path=ActualHeight}" Height="{Binding ElementName=Dye_Ring1, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Ring1_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Ring1_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Ring1_btnRemove_Click" />
+        </StackPanel>
+
+        <!--Dye_Ring2-->
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="605,548,0,163" Width="133" RenderTransformOrigin="0.5,0.5">
+            <TextBox x:Name="Dye_Ring2" Width="133" KeyDown="Dye_Ring2_KeyDown" Height="64" FontSize="24" />
+        </StackPanel>
+
+        <Popup x:Name="Dye_Ring2_Popup" PlacementTarget="{Binding ElementName=Dye_Ring2}" Placement="Bottom">
+            <ListView x:Name="Dye_Ring2_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Ring2_Filtered_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Icone" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Width="32" Height="32">
+                                        <Image.Source>
+                                            <BitmapImage UriSource="{Binding IconUrl}" />
+                                        </Image.Source>
+                                    </Image>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Name" Width="250" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="ID" Width="50" DisplayMemberBinding="{Binding ID}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Popup>
+        <StackPanel x:Name="Dye_Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image x:Name="Dye_Ring2_imgSelectedIcon" Width="{Binding ElementName=Dye_Ring2, Path=ActualHeight}" Height="{Binding ElementName=Dye_Ring2, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Ring2_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+            </Grid>
+            <Button x:Name="Dye_Ring2_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Dye_Ring2_btnRemove_Click" />
+        </StackPanel>
+        <!--#endregion-->
 
         <!--Languages-->
         <ComboBox x:Name="cmbLanguages" SelectedIndex="0" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="41">

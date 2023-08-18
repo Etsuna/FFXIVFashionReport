@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -22,7 +24,7 @@ namespace FFXIVFashionReport
         #region declare
         private static string Key = "cd6f068c506d418fa1699cc4e86772ccc05bdc574a664f2ba5db3db179f87a7f";
         private List<string> languageList = new List<string> { "Fr", "De", "Ja", "En" };
-        private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2" };
+        private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2", "Dye_Weapon", "Dye_Head", "Dye_Body", "Dye_Hands", "Dye_Legs", "Dye_Shoes", "Dye_Earrings", "Dye_Necklace", "Dye_Bracelets", "Dye_Ring1", "Dye_Ring2" };
         private HttpClient _httpClient;
         private const string ApiBaseUrl = "https://xivapi.com/search";
         private const int MillisecondsDelay = 1000;
@@ -38,6 +40,17 @@ namespace FFXIVFashionReport
         private Item _Bracelets_selectedItem;
         private Item _Ring1_selectedItem;
         private Item _Ring2_selectedItem;
+        private Item _Dye_Weapon_selectedItem;
+        private Item _Dye_Head_selectedItem;
+        private Item _Dye_Body_selectedItem;
+        private Item _Dye_Hands_selectedItem;
+        private Item _Dye_Legs_selectedItem;
+        private Item _Dye_Shoes_selectedItem;
+        private Item _Dye_Earrings_selectedItem;
+        private Item _Dye_Necklace_selectedItem;
+        private Item _Dye_Bracelets_selectedItem;
+        private Item _Dye_Ring1_selectedItem;
+        private Item _Dye_Ring2_selectedItem;
 
         public ObservableCollection<Item> Weapon_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Head_Results { get; } = new ObservableCollection<Item>();
@@ -50,6 +63,17 @@ namespace FFXIVFashionReport
         public ObservableCollection<Item> Bracelets_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Ring1_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Ring2_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Weapon_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Head_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Body_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Hands_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Legs_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Shoes_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Earrings_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Necklace_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Bracelets_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Ring1_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Ring2_Results { get; } = new ObservableCollection<Item>();
 
         public MainWindow()
         {
@@ -58,14 +82,25 @@ namespace FFXIVFashionReport
             Weapon_Filtered.ItemsSource = Weapon_Results;
             Head_Filtered.ItemsSource = Head_Results;
             Body_Filtered.ItemsSource = Body_Results;
-            Body_Filtered.ItemsSource = Hands_Results;
-            Body_Filtered.ItemsSource = Legs_Results;
-            Body_Filtered.ItemsSource = Shoes_Results;
-            Body_Filtered.ItemsSource = Earrings_Results;
-            Body_Filtered.ItemsSource = Necklace_Results;
-            Body_Filtered.ItemsSource = Bracelets_Results;
-            Body_Filtered.ItemsSource = Ring1_Results;
-            Body_Filtered.ItemsSource = Ring2_Results;
+            Hands_Filtered.ItemsSource = Hands_Results;
+            Legs_Filtered.ItemsSource = Legs_Results;
+            Shoes_Filtered.ItemsSource = Shoes_Results;
+            Earrings_Filtered.ItemsSource = Earrings_Results;
+            Necklace_Filtered.ItemsSource = Necklace_Results;
+            Bracelets_Filtered.ItemsSource = Bracelets_Results;
+            Ring1_Filtered.ItemsSource = Ring1_Results;
+            Ring2_Filtered.ItemsSource = Ring2_Results;
+            Dye_Weapon_Filtered.ItemsSource = Dye_Weapon_Results;
+            Dye_Head_Filtered.ItemsSource = Dye_Head_Results;
+            Dye_Body_Filtered.ItemsSource = Dye_Body_Results;
+            Dye_Hands_Filtered.ItemsSource = Dye_Hands_Results;
+            Dye_Legs_Filtered.ItemsSource = Dye_Legs_Results;
+            Dye_Shoes_Filtered.ItemsSource = Dye_Shoes_Results;
+            Dye_Earrings_Filtered.ItemsSource = Dye_Earrings_Results;
+            Dye_Necklace_Filtered.ItemsSource = Dye_Necklace_Results;
+            Dye_Bracelets_Filtered.ItemsSource = Dye_Bracelets_Results;
+            Dye_Ring1_Filtered.ItemsSource = Dye_Ring1_Results;
+            Dye_Ring2_Filtered.ItemsSource = Dye_Ring2_Results;
         }
         #endregion
 
@@ -367,7 +402,305 @@ namespace FFXIVFashionReport
         }
         #endregion
 
-        #region Equipments
+        #region Dye_Weapon
+        private async void Dye_Weapon_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                e.Handled = true;
+                await SearchInfos(Dye_Weapon_imgSelectedIcon, Dye_Weapon_txtSelectedName, Dye_Weapon_selectedResultPanel, Dye_Weapon, Dye_Weapon_Popup, Dye_Weapon_Filtered, _Dye_Weapon_selectedItem);
+            }
+        }
+
+        private void Dye_Weapon_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Weapon_Filtered.SelectedItem != null)
+            {
+                _Dye_Weapon_selectedItem = (Item)Dye_Weapon_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Weapon_imgSelectedIcon, Dye_Weapon_txtSelectedName, Dye_Weapon_selectedResultPanel, Dye_Weapon, Dye_Weapon_Popup, _Dye_Weapon_selectedItem);
+
+                Dye_Weapon_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Weapon_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Weapon_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Weapon_imgSelectedIcon, Dye_Weapon_txtSelectedName, Dye_Weapon_selectedResultPanel, Dye_Weapon, Dye_Weapon_Popup, _Dye_Weapon_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Head
+        private async void Dye_Head_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Head_imgSelectedIcon, Dye_Head_txtSelectedName, Dye_Head_selectedResultPanel, Dye_Head, Dye_Head_Popup, Dye_Head_Filtered, _Dye_Head_selectedItem);
+            }
+        }
+
+        private void Dye_Head_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Head_Filtered.SelectedItem != null)
+            {
+                _Dye_Head_selectedItem = (Item)Dye_Head_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Head_imgSelectedIcon, Dye_Head_txtSelectedName, Dye_Head_selectedResultPanel, Dye_Head, Dye_Head_Popup, _Dye_Head_selectedItem);
+
+                Dye_Head_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Head_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Head_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Head_imgSelectedIcon, Dye_Head_txtSelectedName, Dye_Head_selectedResultPanel, Dye_Head, Dye_Head_Popup, _Dye_Head_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Body
+        private async void Dye_Body_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Body_imgSelectedIcon, Dye_Body_txtSelectedName, Dye_Body_selectedResultPanel, Dye_Body, Dye_Body_Popup, Dye_Body_Filtered, _Dye_Body_selectedItem);
+            }
+        }
+
+        private void Dye_Body_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Body_Filtered.SelectedItem != null)
+            {
+                _Dye_Body_selectedItem = (Item)Dye_Body_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Body_imgSelectedIcon, Dye_Body_txtSelectedName, Dye_Body_selectedResultPanel, Dye_Body, Dye_Body_Popup, _Dye_Body_selectedItem);
+
+                Dye_Body_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Body_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Body_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Body_imgSelectedIcon, Dye_Body_txtSelectedName, Dye_Body_selectedResultPanel, Dye_Body, Dye_Body_Popup, _Dye_Body_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Hands
+        private async void Dye_Hands_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Hands_imgSelectedIcon, Dye_Hands_txtSelectedName, Dye_Hands_selectedResultPanel, Dye_Hands, Dye_Hands_Popup, Dye_Hands_Filtered, _Dye_Hands_selectedItem);
+            }
+        }
+
+        private void Dye_Hands_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Hands_Filtered.SelectedItem != null)
+            {
+                _Dye_Hands_selectedItem = (Item)Dye_Hands_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Hands_imgSelectedIcon, Dye_Hands_txtSelectedName, Dye_Hands_selectedResultPanel, Dye_Hands, Dye_Hands_Popup, _Dye_Hands_selectedItem);
+
+                Dye_Hands_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Hands_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Hands_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Hands_imgSelectedIcon, Dye_Hands_txtSelectedName, Dye_Hands_selectedResultPanel, Dye_Hands, Dye_Hands_Popup, _Dye_Hands_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Legs
+        private async void Dye_Legs_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Legs_imgSelectedIcon, Dye_Legs_txtSelectedName, Dye_Legs_selectedResultPanel, Dye_Legs, Dye_Legs_Popup, Dye_Legs_Filtered, _Dye_Legs_selectedItem);
+            }
+        }
+
+        private void Dye_Legs_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Legs_Filtered.SelectedItem != null)
+            {
+                _Dye_Legs_selectedItem = (Item)Dye_Legs_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Legs_imgSelectedIcon, Dye_Legs_txtSelectedName, Dye_Legs_selectedResultPanel, Dye_Legs, Dye_Legs_Popup, _Dye_Legs_selectedItem);
+
+                Dye_Legs_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Legs_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Legs_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Legs_imgSelectedIcon, Dye_Legs_txtSelectedName, Dye_Legs_selectedResultPanel, Dye_Legs, Dye_Legs_Popup, _Dye_Legs_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Shoes
+        private async void Dye_Shoes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Shoes_imgSelectedIcon, Dye_Shoes_txtSelectedName, Dye_Shoes_selectedResultPanel, Dye_Shoes, Dye_Shoes_Popup, Dye_Shoes_Filtered, _Dye_Shoes_selectedItem);
+            }
+        }
+
+        private void Dye_Shoes_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Shoes_Filtered.SelectedItem != null)
+            {
+                _Dye_Shoes_selectedItem = (Item)Dye_Shoes_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Shoes_imgSelectedIcon, Dye_Shoes_txtSelectedName, Dye_Shoes_selectedResultPanel, Dye_Shoes, Dye_Shoes_Popup, _Dye_Shoes_selectedItem);
+
+                Dye_Shoes_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Shoes_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Shoes_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Shoes_imgSelectedIcon, Dye_Shoes_txtSelectedName, Dye_Shoes_selectedResultPanel, Dye_Shoes, Dye_Shoes_Popup, _Dye_Shoes_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Earrings
+        private async void Dye_Earrings_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Earrings_imgSelectedIcon, Dye_Earrings_txtSelectedName, Dye_Earrings_selectedResultPanel, Dye_Earrings, Dye_Earrings_Popup, Dye_Earrings_Filtered, _Dye_Earrings_selectedItem);
+            }
+        }
+
+        private void Dye_Earrings_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Earrings_Filtered.SelectedItem != null)
+            {
+                _Dye_Earrings_selectedItem = (Item)Dye_Earrings_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Earrings_imgSelectedIcon, Dye_Earrings_txtSelectedName, Dye_Earrings_selectedResultPanel, Dye_Earrings, Dye_Earrings_Popup, _Dye_Earrings_selectedItem);
+
+                Dye_Earrings_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Earrings_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Earrings_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Earrings_imgSelectedIcon, Dye_Earrings_txtSelectedName, Dye_Earrings_selectedResultPanel, Dye_Earrings, Dye_Earrings_Popup, _Dye_Earrings_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Necklace
+        private async void Dye_Necklace_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Necklace_imgSelectedIcon, Dye_Necklace_txtSelectedName, Dye_Necklace_selectedResultPanel, Dye_Necklace, Dye_Necklace_Popup, Dye_Necklace_Filtered, _Dye_Necklace_selectedItem);
+            }
+        }
+
+        private void Dye_Necklace_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Necklace_Filtered.SelectedItem != null)
+            {
+                _Dye_Necklace_selectedItem = (Item)Dye_Necklace_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Necklace_imgSelectedIcon, Dye_Necklace_txtSelectedName, Dye_Necklace_selectedResultPanel, Dye_Necklace, Dye_Necklace_Popup, _Dye_Necklace_selectedItem);
+
+                Dye_Necklace_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Necklace_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Necklace_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Necklace_imgSelectedIcon, Dye_Necklace_txtSelectedName, Dye_Necklace_selectedResultPanel, Dye_Necklace, Dye_Necklace_Popup, _Dye_Necklace_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Bracelets
+        private async void Dye_Bracelets_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Bracelets_imgSelectedIcon, Dye_Bracelets_txtSelectedName, Dye_Bracelets_selectedResultPanel, Dye_Bracelets, Dye_Bracelets_Popup, Dye_Bracelets_Filtered, _Dye_Bracelets_selectedItem);
+            }
+        }
+
+        private void Dye_Bracelets_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Bracelets_Filtered.SelectedItem != null)
+            {
+                _Dye_Bracelets_selectedItem = (Item)Dye_Bracelets_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Bracelets_imgSelectedIcon, Dye_Bracelets_txtSelectedName, Dye_Bracelets_selectedResultPanel, Dye_Bracelets, Dye_Bracelets_Popup, _Dye_Bracelets_selectedItem);
+
+                Dye_Bracelets_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Bracelets_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Bracelets_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Bracelets_imgSelectedIcon, Dye_Bracelets_txtSelectedName, Dye_Bracelets_selectedResultPanel, Dye_Bracelets, Dye_Bracelets_Popup, _Dye_Bracelets_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Ring1
+        private async void Dye_Ring1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Ring1_imgSelectedIcon, Dye_Ring1_txtSelectedName, Dye_Ring1_selectedResultPanel, Dye_Ring1, Dye_Ring1_Popup, Dye_Ring1_Filtered, _Dye_Ring1_selectedItem);
+            }
+        }
+
+        private void Dye_Ring1_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Ring1_Filtered.SelectedItem != null)
+            {
+                _Dye_Ring1_selectedItem = (Item)Dye_Ring1_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Ring1_imgSelectedIcon, Dye_Ring1_txtSelectedName, Dye_Ring1_selectedResultPanel, Dye_Ring1, Dye_Ring1_Popup, _Dye_Ring1_selectedItem);
+
+                Dye_Ring1_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Ring1_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Ring1_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Ring1_imgSelectedIcon, Dye_Ring1_txtSelectedName, Dye_Ring1_selectedResultPanel, Dye_Ring1, Dye_Ring1_Popup, _Dye_Ring1_selectedItem);
+        }
+        #endregion
+
+        #region Dye_Ring2
+        private async void Dye_Ring2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == KeyInterop.KeyFromVirtualKey(13))
+            {
+                await SearchInfos(Dye_Ring2_imgSelectedIcon, Dye_Ring2_txtSelectedName, Dye_Ring2_selectedResultPanel, Dye_Ring2, Dye_Ring2_Popup, Dye_Ring2_Filtered, _Dye_Ring2_selectedItem);
+            }
+        }
+
+        private void Dye_Ring2_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Dye_Ring2_Filtered.SelectedItem != null)
+            {
+                _Dye_Ring2_selectedItem = (Item)Dye_Ring2_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Ring2_imgSelectedIcon, Dye_Ring2_txtSelectedName, Dye_Ring2_selectedResultPanel, Dye_Ring2, Dye_Ring2_Popup, _Dye_Ring2_selectedItem);
+
+                Dye_Ring2_Popup.IsOpen = false;
+            }
+        }
+
+        private void Dye_Ring2_btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+            _Dye_Ring2_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Ring2_imgSelectedIcon, Dye_Ring2_txtSelectedName, Dye_Ring2_selectedResultPanel, Dye_Ring2, Dye_Ring2_Popup, _Dye_Ring2_selectedItem);
+        }
+        #endregion
+
+        #region Equipments and Dye
         private void ClearResults(TextBox textBox)
         {
             switch (textBox.Name)
@@ -404,6 +737,39 @@ namespace FFXIVFashionReport
                     break;
                 case "Ring2":
                     Ring2_Results.Clear();
+                    break;
+                case "Dye_Weapon":
+                    Dye_Weapon_Results.Clear();
+                    break;
+                case "Dye_Head":
+                    Dye_Head_Results.Clear();
+                    break;
+                case "Dye_Body":
+                    Dye_Body_Results.Clear();
+                    break;
+                case "Dye_Hands":
+                    Dye_Hands_Results.Clear();
+                    break;
+                case "Dye_Legs":
+                    Dye_Legs_Results.Clear();
+                    break;
+                case "Dye_Shoes":
+                    Dye_Shoes_Results.Clear();
+                    break;
+                case "Dye_Earrings":
+                    Dye_Earrings_Results.Clear();
+                    break;
+                case "Dye_Necklace":
+                    Dye_Necklace_Results.Clear();
+                    break;
+                case "Dye_Bracelets":
+                    Dye_Bracelets_Results.Clear();
+                    break;
+                case "Dye_Ring1":
+                    Dye_Ring1_Results.Clear();
+                    break;
+                case "Dye_Ring2":
+                    Dye_Ring2_Results.Clear();
                     break;
                 default:
                     break;
@@ -502,6 +868,94 @@ namespace FFXIVFashionReport
                         Icon = item.Icon
                     });
                     break;
+                case "Dye_Weapon":
+                    Dye_Weapon_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Head":
+                    Dye_Head_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Body":
+                    Dye_Body_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Hands":
+                    Dye_Hands_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Legs":
+                    Dye_Legs_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Shoes":
+                    Dye_Shoes_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Earrings":
+                    Dye_Earrings_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Necklace":
+                    Dye_Necklace_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Bracelets":
+                    Dye_Bracelets_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Ring1":
+                    Dye_Ring1_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Ring2":
+                    Dye_Ring2_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = BreakNameIntoMultipleLines(item.Name),
+                        Icon = item.Icon
+                    });
+                    break;
                 default:
                     break;
             }
@@ -554,6 +1008,50 @@ namespace FFXIVFashionReport
                 case "Ring2":
                     filteredItems = Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
                     listView.ItemsSource = Ring2_Results;
+                    break;
+                case "Dye_Weapon":
+                    filteredItems = Dye_Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Weapon_Results;
+                    break;
+                case "Dye_Head":
+                    filteredItems = Dye_Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Head_Results;
+                    break;
+                case "Dye_Body":
+                    filteredItems = Dye_Body_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Body_Results;
+                    break;
+                case "Dye_Hands":
+                    filteredItems = Dye_Hands_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Hands_Results;
+                    break;
+                case "Dye_Legs":
+                    filteredItems = Dye_Legs_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Legs_Results;
+                    break;
+                case "Dye_Shoes":
+                    filteredItems = Dye_Shoes_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Shoes_Results;
+                    break;
+                case "Dye_Earrings":
+                    filteredItems = Dye_Earrings_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Earrings_Results;
+                    break;
+                case "Dye_Necklace":
+                    filteredItems = Dye_Necklace_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Necklace_Results;
+                    break;
+                case "Dye_Bracelets":
+                    filteredItems = Dye_Bracelets_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Bracelets_Results;
+                    break;
+                case "Dye_Ring1":
+                    filteredItems = Dye_Ring1_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Ring1_Results;
+                    break;
+                case "Dye_Ring2":
+                    filteredItems = Dye_Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Ring2_Results;
                     break;
                 default:
                     break;
@@ -609,6 +1107,50 @@ namespace FFXIVFashionReport
                     filteredItems = Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
                     listView.ItemsSource = Ring2_Results;
                     break;
+                case "Dye_Weapon":
+                    filteredItems = Dye_Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Weapon_Results;
+                    break;
+                case "Dye_Head":
+                    filteredItems = Dye_Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Head_Results;
+                    break;
+                case "Dye_Body":
+                    filteredItems = Dye_Body_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Body_Results;
+                    break;
+                case "Dye_Hands":
+                    filteredItems = Dye_Hands_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Hands_Results;
+                    break;
+                case "Dye_Legs":
+                    filteredItems = Dye_Legs_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Legs_Results;
+                    break;
+                case "Dye_Shoes":
+                    filteredItems = Dye_Shoes_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Shoes_Results;
+                    break;
+                case "Dye_Earrings":
+                    filteredItems = Dye_Earrings_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Earrings_Results;
+                    break;
+                case "Dye_Necklace":
+                    filteredItems = Dye_Necklace_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Necklace_Results;
+                    break;
+                case "Dye_Bracelets":
+                    filteredItems = Dye_Bracelets_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Bracelets_Results;
+                    break;
+                case "Dye_Ring1":
+                    filteredItems = Dye_Ring1_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Ring1_Results;
+                    break;
+                case "Dye_Ring2":
+                    filteredItems = Dye_Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Dye_Ring2_Results;
+                    break;
                 default:
                     break;
             }
@@ -649,7 +1191,7 @@ namespace FFXIVFashionReport
         private void SetVisibility(string typeName, Visibility visibility)
         {
             var textBox = FindName($"{typeName}") as TextBox;
-            if(textBox != null )
+            if (textBox != null)
             {
                 textBox.Visibility = visibility;
             }
@@ -680,6 +1222,17 @@ namespace FFXIVFashionReport
             listName = await GetItemInfoDictionaryAsync(_Bracelets_selectedItem, "Bracelets", listName);
             listName = await GetItemInfoDictionaryAsync(_Ring1_selectedItem, "Ring1", listName);
             listName = await GetItemInfoDictionaryAsync(_Ring2_selectedItem, "Ring2", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Weapon_selectedItem, "Dye_Weapon", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Head_selectedItem, "Dye_Head", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Body_selectedItem, "Dye_Body", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Hands_selectedItem, "Dye_Hands", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Legs_selectedItem, "Dye_Legs", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Shoes_selectedItem, "Dye_Shoes", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Earrings_selectedItem, "Dye_Earrings", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Necklace_selectedItem, "Dye_Necklace", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Bracelets_selectedItem, "Dye_Bracelets", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Ring1_selectedItem, "Dye_Ring1", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Ring2_selectedItem, "Dye_Ring2", listName);
 
             Make_Fashion_Report.Visibility = Visibility.Collapsed;
             cmbLanguages.Visibility = Visibility.Collapsed;
