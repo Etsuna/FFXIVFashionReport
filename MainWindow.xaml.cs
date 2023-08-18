@@ -702,7 +702,7 @@ namespace FFXIVFashionReport
         {
             foreach (var language in languageList)
             {
-                string fileName = $"screenshot_{language}.png";
+                string fileName = $"Fashion_Report_{Fashion_Report_Number.Text}_{language}.png";
 
                 foreach (var equipment in EquipmentList)
                 {

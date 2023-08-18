@@ -444,6 +444,6 @@
         <!--Save-->
         <Button x:Name="Make_Fashion_Report" Content="Make Fashion Report" HorizontalAlignment="Left" Margin="523,655,0,0" VerticalAlignment="Top" Height="43" Width="161" Click="MakeFashionReport_btnRemove_Click"/>
         <TextBlock HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178" Height="21" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="18" Text="Fashion Report #&#xD;&#xA;"/>
-        <TextBox HorizontalAlignment="Left" Margin="631,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" FontFamily="Great Vibes" FontSize="18" Width="60" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
+        <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="631,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" FontFamily="Great Vibes" FontSize="18" Width="60" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
     </Grid>
 </Window>
