@@ -6,10 +6,14 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <PackageIcon></PackageIcon>
+    <Copyright>Etsuna</Copyright>
+    <ApplicationIcon>Background\Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Background\FashionReportImg.png" />
+    <None Remove="Background\Icon.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,6 +22,7 @@
 
   <ItemGroup>
     <Resource Include="Background\FashionReportImg.png" />
+    <Resource Include="Background\Icon.ico" />
   </ItemGroup>
 
 </Project>

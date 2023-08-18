@@ -1,7 +1,8 @@
 ﻿<Window x:Class="FFXIVFashionReport.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="FFXIV Fashion Report Generator" Height="795" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="FFXIV Fashion Report Generator" Height="795" Width="1200" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"
+        Icon="Background/Icon.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
