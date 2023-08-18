@@ -5,28 +5,28 @@ this application allows to generate the Fashion Report for all languages.
 
 - Select your search language first.
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/491cb77a-b12f-4f4b-83a9-26927d7ddbbb)
+![01](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/0aaad469-b6b4-4e9c-af11-4032e464b11b)
 
 - Enter the Fashion Report number.
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/5084ff1a-538e-40c4-8067-4937babbde49)
+![02](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/539312e6-5dc8-4b9a-a964-2ac2b4603a77)
 
 - Fill in the fields and press "enter" to start the search.
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/5c37514b-db53-49f5-94a8-7ae8c63f9ef0)
+![03](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/8c5a34cc-3e7f-4e5b-b1eb-0263e3326e5f)
 
 - Select the different Iteùs and Dyes.
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/0f3a9fb0-2aa9-46de-b762-b3f2e845f1f1)
+![04](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/e7fc8124-864b-4372-85f3-5eae53138c66)
 
 - Click on "Make Fashion Report". 
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/cf2bbdbc-38c9-4c50-b6de-04d0bd95f027)
+![05](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/4fed7099-0390-46ca-a751-33158a6baba6)
 
 - Wait for this window to tell you that it is OK.
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/eb6473dd-08ce-4e3f-9b0b-2a6745e99b3a)
+![06](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/a21675f0-d2f9-4978-98d6-3b0131ab362d)
 
 - A png file will be generated for each language in the program folder.
 
-![image](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/f4e8757f-fb60-427e-b7d8-a3802d014fdf)
+![07](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/9d9338bc-7529-4793-b66d-2d835613bfe7)
