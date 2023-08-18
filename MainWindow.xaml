@@ -14,13 +14,13 @@
 
         <Image Source="Background/FashionReportImg.png" Width="1200"/>
 
-        <!--Sword-->
+        <!--Weapon-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,126,0,588" Width="294" RenderTransformOrigin="0.5,0.5">
-            <TextBox x:Name="Sword" Width="294" KeyDown="Sword_KeyDown" Height="64" FontSize="24" />
+            <TextBox x:Name="Weapon" Width="294" KeyDown="Weapon_KeyDown" Height="64" FontSize="24" />
         </StackPanel>
 
-        <Popup x:Name="Sword_Popup" PlacementTarget="{Binding ElementName=Sword}" Placement="Bottom">
-            <ListView x:Name="Sword_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Sword_Filtered_SelectionChanged">
+        <Popup x:Name="Weapon_Popup" PlacementTarget="{Binding ElementName=Weapon}" Placement="Bottom">
+            <ListView x:Name="Weapon_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Weapon_Filtered_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Icone" Width="50">
@@ -40,16 +40,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Sword_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Weapon_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Sword_imgSelectedIcon" Width="{Binding ElementName=Sword, Path=ActualHeight}" Height="{Binding ElementName=Sword, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Sword_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Weapon_imgSelectedIcon" Width="{Binding ElementName=Weapon, Path=ActualHeight}" Height="{Binding ElementName=Weapon, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Weapon_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
             </Grid>
-            <Button x:Name="Sword_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Sword_btnRemove_Click" />
+            <Button x:Name="Weapon_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Weapon_btnRemove_Click" />
         </StackPanel>
 
         <!--Head-->

@@ -22,12 +22,12 @@ namespace FFXIVFashionReport
         #region declare
         private static string Key = "cd6f068c506d418fa1699cc4e86772ccc05bdc574a664f2ba5db3db179f87a7f";
         private List<string> languageList = new List<string> { "Fr", "De", "Ja", "En" };
-        private List<string> EquipmentList = new List<string> { "Sword", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2" };
+        private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2" };
         private HttpClient _httpClient;
         private const string ApiBaseUrl = "https://xivapi.com/search";
         private const int MillisecondsDelay = 1000;
         private const int SaveMillisecondsDelay = 2000;
-        private Item _Sword_selectedItem;
+        private Item _Weapon_selectedItem;
         private Item _Head_selectedItem;
         private Item _Body_selectedItem;
         private Item _Hands_selectedItem;
@@ -39,7 +39,7 @@ namespace FFXIVFashionReport
         private Item _Ring1_selectedItem;
         private Item _Ring2_selectedItem;
 
-        public ObservableCollection<Item> Sword_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Weapon_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Head_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Body_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Hands_Results { get; } = new ObservableCollection<Item>();
@@ -55,7 +55,7 @@ namespace FFXIVFashionReport
         {
             InitializeComponent();
             _httpClient = new HttpClient();
-            Sword_Filtered.ItemsSource = Sword_Results;
+            Weapon_Filtered.ItemsSource = Weapon_Results;
             Head_Filtered.ItemsSource = Head_Results;
             Body_Filtered.ItemsSource = Body_Results;
             Body_Filtered.ItemsSource = Hands_Results;
@@ -69,31 +69,31 @@ namespace FFXIVFashionReport
         }
         #endregion
 
-        #region Sword
-        private async void Sword_KeyDown(object sender, KeyEventArgs e)
+        #region Weapon
+        private async void Weapon_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == KeyInterop.KeyFromVirtualKey(13))
             {
                 e.Handled = true;
-                await SearchInfos(Sword_imgSelectedIcon, Sword_txtSelectedName, Sword_selectedResultPanel, Sword, Sword_Popup, Sword_Filtered, _Sword_selectedItem);
+                await SearchInfos(Weapon_imgSelectedIcon, Weapon_txtSelectedName, Weapon_selectedResultPanel, Weapon, Weapon_Popup, Weapon_Filtered, _Weapon_selectedItem);
             }
         }
 
-        private void Sword_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Weapon_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Sword_Filtered.SelectedItem != null)
+            if (Weapon_Filtered.SelectedItem != null)
             {
-                _Sword_selectedItem = (Item)Sword_Filtered.SelectedItem;
-                UpdateSelectedResultUI(Sword_imgSelectedIcon, Sword_txtSelectedName, Sword_selectedResultPanel, Sword, Sword_Popup, _Sword_selectedItem);
+                _Weapon_selectedItem = (Item)Weapon_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Weapon_imgSelectedIcon, Weapon_txtSelectedName, Weapon_selectedResultPanel, Weapon, Weapon_Popup, _Weapon_selectedItem);
 
-                Sword_Popup.IsOpen = false;
+                Weapon_Popup.IsOpen = false;
             }
         }
 
-        private void Sword_btnRemove_Click(object sender, RoutedEventArgs e)
+        private void Weapon_btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            _Sword_selectedItem = null;
-            UpdateSelectedResultUI(Sword_imgSelectedIcon, Sword_txtSelectedName, Sword_selectedResultPanel, Sword, Sword_Popup, _Sword_selectedItem);
+            _Weapon_selectedItem = null;
+            UpdateSelectedResultUI(Weapon_imgSelectedIcon, Weapon_txtSelectedName, Weapon_selectedResultPanel, Weapon, Weapon_Popup, _Weapon_selectedItem);
         }
         #endregion
 
@@ -372,8 +372,8 @@ namespace FFXIVFashionReport
         {
             switch (textBox.Name)
             {
-                case "Sword":
-                    Sword_Results.Clear();
+                case "Weapon":
+                    Weapon_Results.Clear();
                     break;
                 case "Head":
                     Head_Results.Clear();
@@ -414,8 +414,8 @@ namespace FFXIVFashionReport
         {
             switch (textBox.Name)
             {
-                case "Sword":
-                    Sword_Results.Add(new Item
+                case "Weapon":
+                    Weapon_Results.Add(new Item
                     {
                         ID = item.ID,
                         Name = BreakNameIntoMultipleLines(item.Name),
@@ -511,9 +511,9 @@ namespace FFXIVFashionReport
         {
             switch (textBox.Name)
             {
-                case "Sword":
-                    filteredItems = Sword_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Sword_Results;
+                case "Weapon":
+                    filteredItems = Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Weapon_Results;
                     break;
                 case "Head":
                     filteredItems = Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
@@ -565,9 +565,9 @@ namespace FFXIVFashionReport
         {
             switch (textBox.Name)
             {
-                case "Sword":
-                    filteredItems = Sword_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Sword_Results;
+                case "Weapon":
+                    filteredItems = Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
+                    listView.ItemsSource = Weapon_Results;
                     break;
                 case "Head":
                     filteredItems = Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
@@ -669,7 +669,7 @@ namespace FFXIVFashionReport
         {
             var listName = new Dictionary<string, string>();
 
-            listName = await GetItemInfoDictionaryAsync(_Sword_selectedItem, "Sword", listName);
+            listName = await GetItemInfoDictionaryAsync(_Weapon_selectedItem, "Weapon", listName);
             listName = await GetItemInfoDictionaryAsync(_Head_selectedItem, "Head", listName);
             listName = await GetItemInfoDictionaryAsync(_Body_selectedItem, "Body", listName);
             listName = await GetItemInfoDictionaryAsync(_Hands_selectedItem, "Hands", listName);
@@ -714,7 +714,6 @@ namespace FFXIVFashionReport
             }
 
             MessageBox.Show("Screenshot captured and saved");
-
         }
 
         private void UpdateTextLanguage(Dictionary<string, string> listName, string Equipment, string language)
