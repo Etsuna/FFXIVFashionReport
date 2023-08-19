@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -22,17 +23,12 @@ namespace FFXIVFashionReport
     {
         #region declare
         private static string Key = "cd6f068c506d418fa1699cc4e86772ccc05bdc574a664f2ba5db3db179f87a7f";
-        
         private List<string> languageList = new List<string> { "Fr", "De", "Ja", "En" };
         private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2", "Dye_Weapon", "Dye_Head", "Dye_Body", "Dye_Hands", "Dye_Legs", "Dye_Shoes", "Dye_Earrings", "Dye_Necklace", "Dye_Bracelets", "Dye_Ring1", "Dye_Ring2" };
-        private List<int> WeaponList = new List<int>() { 9, 10, 11, 12, 13, 14, 15, 16, 18, 73, 76, 77, 78, 83, 84, 85, 86, 87, 88, 89 };
-        private Dictionary<string, int?> EquipementDictionary = new Dictionary<string, int?>(){ { "Head", 31 }, { "Body", 33 }, { "Hands", 36 }, { "Legs", 35 }, { "Shoes", 37 }, { "Earrings", 40 }, { "Necklace", 39 }, { "Bracelets", 41 }, { "Ring1", 42 }, { "Ring2", 42 }};
-        
         private HttpClient _httpClient;
         private const string ApiBaseUrl = "https://xivapi.com/search";
         private const int MillisecondsDelay = 1000;
         private const int SaveMillisecondsDelay = 2000;
-        
         private Item _Weapon_selectedItem;
         private Item _Head_selectedItem;
         private Item _Body_selectedItem;
@@ -1332,7 +1328,7 @@ namespace FFXIVFashionReport
                 return;
             }
 
-            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,Name,Icon,Url&private_key={Key}";
+            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&private_key={Key}";
 
             try
             {
@@ -1346,7 +1342,11 @@ namespace FFXIVFashionReport
 
                     var responseBody = await response.Content.ReadAsStringAsync();
                     apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseBody);
-                    GetItemsByType(textBox, apiResponse);
+
+                    foreach (var item in apiResponse.Results)
+                    {
+                        StoreItems(textBox, item);
+                    }
 
                     page++;
                 } while (page <= apiResponse.Pagination.PageTotal && apiResponse.Pagination.PageNext != null);
@@ -1372,37 +1372,6 @@ namespace FFXIVFashionReport
             filteredItems = ResultItems(textBox, listView, filterText, filteredItems);
 
             UpdateSelectedResultUI(image, textBlock, stackPanel, textBox, popup, _selectedItem);
-        }
-
-        private void GetItemsByType(TextBox textBox, ApiResponse apiResponse)
-        {
-            int dyeCategoryId = 54;
-
-            foreach (var item in apiResponse.Results)
-            {
-                if (!item.itemSearchCategory.ID.HasValue)
-                {
-                    continue;
-                }
-
-                var categoryName = textBox.Name;
-
-                if (EquipementDictionary.TryGetValue(categoryName, out var expectedCategoryId))
-                {
-                    if (expectedCategoryId == null || item.itemSearchCategory.ID == expectedCategoryId)
-                    {
-                        StoreItems(textBox, item);
-                    }
-                }
-                else if (categoryName == "Weapon" && WeaponList.Contains(item.itemSearchCategory.ID.GetValueOrDefault()))
-                {
-                    StoreItems(textBox, item);
-                }
-                else if (categoryName.Contains("Dye") && item.itemSearchCategory.ID == dyeCategoryId)
-                {
-                    StoreItems(textBox, item);
-                }
-            }
         }
 
         private string BreakNameIntoMultipleLines(bool dyeCheck, string name)
@@ -1539,8 +1508,6 @@ namespace FFXIVFashionReport
         public string UrlType { get; set; }
 
         public string IconUrl => $"https://xivapi.com{Icon}";
-
-        public ItemSearchCategory itemSearchCategory { get; set; }
     }
 
     public class Root
@@ -1581,14 +1548,6 @@ namespace FFXIVFashionReport
         [JsonProperty("classJobCategory")]
         public ClassJobCategory classJobCategory { get; set; }
         public ItemSoulCrystal itemSoulCrystal { get; set; }
-
-      
-    }
-
-    public class ItemSearchCategory
-    {
-        [JsonProperty("ID")]
-        public int? ID { get; set; }
     }
 
     public class ItemKind
