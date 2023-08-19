@@ -13,7 +13,7 @@ namespace FFXIVFashionReport
         private Item _Body_selectedItem;
         private Item _Hands_selectedItem;
         private Item _Legs_selectedItem;
-        private Item _Shoes_selectedItem;
+        private Item _Feet_selectedItem;
         private Item _Earrings_selectedItem;
         private Item _Necklace_selectedItem;
         private Item _Bracelets_selectedItem;
@@ -24,7 +24,7 @@ namespace FFXIVFashionReport
         private Item _Dye_Body_selectedItem;
         private Item _Dye_Hands_selectedItem;
         private Item _Dye_Legs_selectedItem;
-        private Item _Dye_Shoes_selectedItem;
+        private Item _Dye_Feet_selectedItem;
         private Item _Dye_Earrings_selectedItem;
         private Item _Dye_Necklace_selectedItem;
         private Item _Dye_Bracelets_selectedItem;

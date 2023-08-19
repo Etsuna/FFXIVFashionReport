@@ -33,7 +33,7 @@ namespace FFXIVFashionReport
                 return;
             }
 
-            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,Name,Icon,ID,Url&private_key={Key}";
+            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,ItemUICategory.Name,ItemResult.ItemUICategory.Name,Name,Icon,ID,Url&private_key={Key}";
 
             try
             {
@@ -81,12 +81,19 @@ namespace FFXIVFashionReport
 
             foreach (var item in apiResponse.Results)
             {
-                if (!item.itemSearchCategory.ID.HasValue)
-                {
-                    continue;
-                }
-
                 var categoryName = textBox.Name;
+
+                if (!item.itemSearchCategory.ID.HasValue && !categoryName.Contains("Dye"))
+                {
+                    if (!string.IsNullOrEmpty(item.ItemUICategory.Name) && categoryName.Contains(item.ItemUICategory.Name))
+                    {
+                        item.itemSearchCategory.ID = EquipementDictionary[categoryName];
+                    }
+                    else if (!string.IsNullOrEmpty(item.ItemResult.Name) && categoryName.Contains(item.ItemResult.Name))
+                    {
+                        item.itemSearchCategory.ID = EquipementDictionary[categoryName];
+                    }
+                }
 
                 if (EquipementDictionary.TryGetValue(categoryName, out var expectedCategoryId))
                 {

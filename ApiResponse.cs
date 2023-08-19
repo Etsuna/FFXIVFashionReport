@@ -5,17 +5,17 @@ namespace FFXIVFashionReport
 {
     public class ApiResponse
     {
-        public List<Item> Results { get; set; }
+        public List<Item>? Results { get; set; }
 
-        public Pagination Pagination { get; set; }
+        public Pagination? Pagination { get; set; }
     }
 
     public class Pagination
     {
         public int Page { get; set; }
         public int PageTotal { get; set; }
-        public string PageNext { get; set; }
-        public string PagePrev { get; set; }
+        public string? PageNext { get; set; }
+        public string? PagePrev { get; set; }
         public int Results { get; set; }
         public int ResultsPerPage { get; set; }
     }
@@ -26,59 +26,69 @@ namespace FFXIVFashionReport
         public int ID { get; set; }
 
         [JsonProperty("Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("Icon")]
-        public string Icon { get; set; }
+        public string? Icon { get; set; }
 
         [JsonProperty("UrlType")]
-        public string UrlType { get; set; }
+        public string? UrlType { get; set; }
 
-        public string IconUrl => $"https://xivapi.com{Icon}";
+        public string? IconUrl => $"https://xivapi.com{Icon}";
 
-        public ItemSearchCategory itemSearchCategory { get; set; }
+        public ItemSearchCategory? itemSearchCategory { get; set; }
+
+        [JsonProperty("ItemUICategory")]
+        public ItemKind? ItemUICategory { get; set; }
+
+        [JsonProperty("ItemResult")]
+        public ItemKind? ItemResult { get; set; }
+    }
+
+    public class ItemResult
+    {
+        [JsonProperty("Name")]
+        public string? Name { get; set; }
     }
 
     public class Root
     {
         [JsonProperty("Name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
+        public string? Name_fr { get; set; }
 
         [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
+        public string? Name_de { get; set; }
 
         [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
+        public string? Name_en { get; set; }
 
         [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
+        public string? Name_ja { get; set; }
 
         [JsonProperty("Description_de")]
-        public string Description_de { get; set; }
+        public string? Description_de { get; set; }
 
         [JsonProperty("Description_en")]
-        public string Description_en { get; set; }
+        public string? Description_en { get; set; }
 
         [JsonProperty("Description_fr")]
-        public string Description_fr { get; set; }
+        public string? Description_fr { get; set; }
 
         [JsonProperty("Description_ja")]
-        public string Description_ja { get; set; }
+        public string? Description_ja { get; set; }
 
         [JsonProperty("PriceMid")]
-        public long PriceMid { get; set; }
+        public long? PriceMid { get; set; }
 
         [JsonProperty("ItemUICategory")]
-        public ItemKind itemKind { get; set; }
+        public ItemKind? ItemUICategory { get; set; }
 
         [JsonProperty("classJobCategory")]
-        public ClassJobCategory classJobCategory { get; set; }
-        public ItemSoulCrystal itemSoulCrystal { get; set; }
-
-
+        public ClassJobCategory? classJobCategory { get; set; }
+        public ItemSoulCrystal? itemSoulCrystal { get; set; }
     }
 
     public class ItemSearchCategory
@@ -89,51 +99,54 @@ namespace FFXIVFashionReport
 
     public class ItemKind
     {
+        [JsonProperty("Name")]
+        public string? Name { get; set; }
+
         [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
+        public string? Name_de { get; set; }
 
         [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
+        public string? Name_en { get; set; }
 
         [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
+        public string? Name_fr { get; set; }
 
         [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
+        public string? Name_ja { get; set; }
     }
 
     public class ClassJobCategory
     {
         [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
+        public string? Name_de { get; set; }
 
         [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
+        public string? Name_en { get; set; }
 
         [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
+        public string? Name_fr { get; set; }
 
         [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
+        public string? Name_ja { get; set; }
     }
 
     public class ClassJobUse
     {
         [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
+        public string? Name_de { get; set; }
 
         [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
+        public string? Name_en { get; set; }
 
         [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
+        public string? Name_fr { get; set; }
 
         [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
+        public string? Name_ja { get; set; }
     }
 
     public class ItemSoulCrystal
     {
-        public ClassJobUse classJobUse { get; set; }
+        public ClassJobUse? classJobUse { get; set; }
     }
 }

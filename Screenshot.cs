@@ -69,7 +69,7 @@ namespace FFXIVFashionReport
             listName = await GetItemInfoDictionaryAsync(_Body_selectedItem, "Body", listName);
             listName = await GetItemInfoDictionaryAsync(_Hands_selectedItem, "Hands", listName);
             listName = await GetItemInfoDictionaryAsync(_Legs_selectedItem, "Legs", listName);
-            listName = await GetItemInfoDictionaryAsync(_Shoes_selectedItem, "Shoes", listName);
+            listName = await GetItemInfoDictionaryAsync(_Feet_selectedItem, "Feet", listName);
             listName = await GetItemInfoDictionaryAsync(_Earrings_selectedItem, "Earrings", listName);
             listName = await GetItemInfoDictionaryAsync(_Necklace_selectedItem, "Necklace", listName);
             listName = await GetItemInfoDictionaryAsync(_Bracelets_selectedItem, "Bracelets", listName);
@@ -80,7 +80,7 @@ namespace FFXIVFashionReport
             listName = await GetItemInfoDictionaryAsync(_Dye_Body_selectedItem, "Dye_Body", listName);
             listName = await GetItemInfoDictionaryAsync(_Dye_Hands_selectedItem, "Dye_Hands", listName);
             listName = await GetItemInfoDictionaryAsync(_Dye_Legs_selectedItem, "Dye_Legs", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Shoes_selectedItem, "Dye_Shoes", listName);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Feet_selectedItem, "Dye_Feet", listName);
             listName = await GetItemInfoDictionaryAsync(_Dye_Earrings_selectedItem, "Dye_Earrings", listName);
             listName = await GetItemInfoDictionaryAsync(_Dye_Necklace_selectedItem, "Dye_Necklace", listName);
             listName = await GetItemInfoDictionaryAsync(_Dye_Bracelets_selectedItem, "Dye_Bracelets", listName);

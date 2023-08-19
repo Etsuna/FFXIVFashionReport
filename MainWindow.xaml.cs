@@ -29,7 +29,7 @@ namespace FFXIVFashionReport
             Body_Filtered.ItemsSource = Body_Results;
             Hands_Filtered.ItemsSource = Hands_Results;
             Legs_Filtered.ItemsSource = Legs_Results;
-            Shoes_Filtered.ItemsSource = Shoes_Results;
+            Feet_Filtered.ItemsSource = Feet_Results;
             Earrings_Filtered.ItemsSource = Earrings_Results;
             Necklace_Filtered.ItemsSource = Necklace_Results;
             Bracelets_Filtered.ItemsSource = Bracelets_Results;
@@ -40,7 +40,7 @@ namespace FFXIVFashionReport
             Dye_Body_Filtered.ItemsSource = Dye_Body_Results;
             Dye_Hands_Filtered.ItemsSource = Dye_Hands_Results;
             Dye_Legs_Filtered.ItemsSource = Dye_Legs_Results;
-            Dye_Shoes_Filtered.ItemsSource = Dye_Shoes_Results;
+            Dye_Feet_Filtered.ItemsSource = Dye_Feet_Results;
             Dye_Earrings_Filtered.ItemsSource = Dye_Earrings_Results;
             Dye_Necklace_Filtered.ItemsSource = Dye_Necklace_Results;
             Dye_Bracelets_Filtered.ItemsSource = Dye_Bracelets_Results;
@@ -184,30 +184,30 @@ namespace FFXIVFashionReport
         }
         #endregion
 
-        #region Shoes
-        private async void Shoes_KeyDown(object sender, KeyEventArgs e)
+        #region Feet
+        private async void Feet_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == KeyInterop.KeyFromVirtualKey(13))
             {
-                await SearchInfos(Shoes_imgSelectedIcon, Shoes_txtSelectedName, Shoes_selectedResultPanel, Shoes, Shoes_Popup, Shoes_Filtered, _Shoes_selectedItem);
+                await SearchInfos(Feet_imgSelectedIcon, Feet_txtSelectedName, Feet_selectedResultPanel, Feet, Feet_Popup, Feet_Filtered, _Feet_selectedItem);
             }
         }
 
-        private void Shoes_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Feet_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Shoes_Filtered.SelectedItem != null)
+            if (Feet_Filtered.SelectedItem != null)
             {
-                _Shoes_selectedItem = (Item)Shoes_Filtered.SelectedItem;
-                UpdateSelectedResultUI(Shoes_imgSelectedIcon, Shoes_txtSelectedName, Shoes_selectedResultPanel, Shoes, Shoes_Popup, _Shoes_selectedItem);
+                _Feet_selectedItem = (Item)Feet_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Feet_imgSelectedIcon, Feet_txtSelectedName, Feet_selectedResultPanel, Feet, Feet_Popup, _Feet_selectedItem);
 
-                Shoes_Popup.IsOpen = false;
+                Feet_Popup.IsOpen = false;
             }
         }
 
-        private void Shoes_btnRemove_Click(object sender, RoutedEventArgs e)
+        private void Feet_btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            _Shoes_selectedItem = null;
-            UpdateSelectedResultUI(Shoes_imgSelectedIcon, Shoes_txtSelectedName, Shoes_selectedResultPanel, Shoes, Shoes_Popup, _Shoes_selectedItem);
+            _Feet_selectedItem = null;
+            UpdateSelectedResultUI(Feet_imgSelectedIcon, Feet_txtSelectedName, Feet_selectedResultPanel, Feet, Feet_Popup, _Feet_selectedItem);
         }
         #endregion
 
@@ -482,30 +482,30 @@ namespace FFXIVFashionReport
         }
         #endregion
 
-        #region Dye_Shoes
-        private async void Dye_Shoes_KeyDown(object sender, KeyEventArgs e)
+        #region Dye_Feet
+        private async void Dye_Feet_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == KeyInterop.KeyFromVirtualKey(13))
             {
-                await SearchInfos(Dye_Shoes_imgSelectedIcon, Dye_Shoes_txtSelectedName, Dye_Shoes_selectedResultPanel, Dye_Shoes, Dye_Shoes_Popup, Dye_Shoes_Filtered, _Dye_Shoes_selectedItem);
+                await SearchInfos(Dye_Feet_imgSelectedIcon, Dye_Feet_txtSelectedName, Dye_Feet_selectedResultPanel, Dye_Feet, Dye_Feet_Popup, Dye_Feet_Filtered, _Dye_Feet_selectedItem);
             }
         }
 
-        private void Dye_Shoes_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Dye_Feet_Filtered_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (Dye_Shoes_Filtered.SelectedItem != null)
+            if (Dye_Feet_Filtered.SelectedItem != null)
             {
-                _Dye_Shoes_selectedItem = (Item)Dye_Shoes_Filtered.SelectedItem;
-                UpdateSelectedResultUI(Dye_Shoes_imgSelectedIcon, Dye_Shoes_txtSelectedName, Dye_Shoes_selectedResultPanel, Dye_Shoes, Dye_Shoes_Popup, _Dye_Shoes_selectedItem);
+                _Dye_Feet_selectedItem = (Item)Dye_Feet_Filtered.SelectedItem;
+                UpdateSelectedResultUI(Dye_Feet_imgSelectedIcon, Dye_Feet_txtSelectedName, Dye_Feet_selectedResultPanel, Dye_Feet, Dye_Feet_Popup, _Dye_Feet_selectedItem);
 
-                Dye_Shoes_Popup.IsOpen = false;
+                Dye_Feet_Popup.IsOpen = false;
             }
         }
 
-        private void Dye_Shoes_btnRemove_Click(object sender, RoutedEventArgs e)
+        private void Dye_Feet_btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            _Dye_Shoes_selectedItem = null;
-            UpdateSelectedResultUI(Dye_Shoes_imgSelectedIcon, Dye_Shoes_txtSelectedName, Dye_Shoes_selectedResultPanel, Dye_Shoes, Dye_Shoes_Popup, _Dye_Shoes_selectedItem);
+            _Dye_Feet_selectedItem = null;
+            UpdateSelectedResultUI(Dye_Feet_imgSelectedIcon, Dye_Feet_txtSelectedName, Dye_Feet_selectedResultPanel, Dye_Feet, Dye_Feet_Popup, _Dye_Feet_selectedItem);
         }
         #endregion
 
@@ -656,7 +656,7 @@ namespace FFXIVFashionReport
                 case "Body": results = Body_Results; break;
                 case "Hands": results = Hands_Results; break;
                 case "Legs": results = Legs_Results; break;
-                case "Shoes": results = Shoes_Results; break;
+                case "Feet": results = Feet_Results; break;
                 case "Earrings": results = Earrings_Results; break;
                 case "Necklace": results = Necklace_Results; break;
                 case "Bracelets": results = Bracelets_Results; break;
@@ -667,7 +667,7 @@ namespace FFXIVFashionReport
                 case "Dye_Body": results = Dye_Body_Results; break;
                 case "Dye_Hands": results = Dye_Hands_Results; break;
                 case "Dye_Legs": results = Dye_Legs_Results; break;
-                case "Dye_Shoes": results = Dye_Shoes_Results; break;
+                case "Dye_Feet": results = Dye_Feet_Results; break;
                 case "Dye_Earrings": results = Dye_Earrings_Results; break;
                 case "Dye_Necklace": results = Dye_Necklace_Results; break;
                 case "Dye_Bracelets": results = Dye_Bracelets_Results; break;
@@ -722,8 +722,8 @@ namespace FFXIVFashionReport
                         Icon = item.Icon
                     });
                     break;
-                case "Shoes":
-                    Shoes_Results.Add(new Item
+                case "Feet":
+                    Feet_Results.Add(new Item
                     {
                         ID = item.ID,
                         Name = item.Name,
@@ -810,8 +810,8 @@ namespace FFXIVFashionReport
                         Icon = item.Icon
                     });
                     break;
-                case "Dye_Shoes":
-                    Dye_Shoes_Results.Add(new Item
+                case "Dye_Feet":
+                    Dye_Feet_Results.Add(new Item
                     {
                         ID = item.ID,
                         Name = item.Name,
@@ -899,7 +899,7 @@ namespace FFXIVFashionReport
                 { "Body", Body_Results },
                 { "Hands", Hands_Results },
                 { "Legs", Legs_Results },
-                { "Shoes", Shoes_Results },
+                { "Feet", Feet_Results },
                 { "Earrings", Earrings_Results },
                 { "Necklace", Necklace_Results },
                 { "Bracelets", Bracelets_Results },
@@ -910,7 +910,7 @@ namespace FFXIVFashionReport
                 { "Dye_Body", Dye_Body_Results },
                 { "Dye_Hands", Dye_Hands_Results },
                 { "Dye_Legs", Dye_Legs_Results },
-                { "Dye_Shoes", Dye_Shoes_Results },
+                { "Dye_Feet", Dye_Feet_Results },
                 { "Dye_Earrings", Dye_Earrings_Results },
                 { "Dye_Necklace", Dye_Necklace_Results },
                 { "Dye_Bracelets", Dye_Bracelets_Results },

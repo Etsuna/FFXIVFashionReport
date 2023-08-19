@@ -205,13 +205,13 @@
             <Button x:Name="Legs_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Legs_btnRemove_Click" />
         </StackPanel>
 
-        <!--Shoes-->
+        <!--Feet-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="52,554,0,160" Width="294" RenderTransformOrigin="0.5,0.5">
-            <TextBox x:Name="Shoes" Width="294" KeyDown="Shoes_KeyDown" Height="64" FontSize="24" />
+            <TextBox x:Name="Feet" Width="294" KeyDown="Feet_KeyDown" Height="64" FontSize="24" />
         </StackPanel>
 
-        <Popup x:Name="Shoes_Popup" PlacementTarget="{Binding ElementName=Shoes}" Placement="Bottom">
-            <ListView x:Name="Shoes_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Shoes_Filtered_SelectionChanged">
+        <Popup x:Name="Feet_Popup" PlacementTarget="{Binding ElementName=Feet}" Placement="Bottom">
+            <ListView x:Name="Feet_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Feet_Filtered_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Icone" Width="50">
@@ -231,16 +231,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Shoes_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Feet_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Shoes_imgSelectedIcon" Width="{Binding ElementName=Shoes, Path=ActualHeight}" Height="{Binding ElementName=Shoes, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Shoes_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
+                <Image x:Name="Feet_imgSelectedIcon" Width="{Binding ElementName=Feet, Path=ActualHeight}" Height="{Binding ElementName=Feet, Path=ActualHeight}" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Feet_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="16"/>
             </Grid>
-            <Button x:Name="Shoes_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Shoes_btnRemove_Click" />
+            <Button x:Name="Feet_btnRemove" Content="x" Width="20" Height="20" Margin="5 0 0 0" Click="Feet_btnRemove_Click" />
         </StackPanel>
 
         <!--Earrings-->
@@ -624,13 +624,13 @@
             <Button x:Name="Dye_Legs_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Legs_btnRemove_Click" />
         </StackPanel>
 
-        <!--Dye_Shoes-->
+        <!--Dye_Feet-->
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="458,548,0,166" Width="133" RenderTransformOrigin="0.5,0.5">
-            <TextBox x:Name="Dye_Shoes" Width="133" KeyDown="Dye_Shoes_KeyDown" Height="64" FontSize="24" />
+            <TextBox x:Name="Dye_Feet" Width="133" KeyDown="Dye_Feet_KeyDown" Height="64" FontSize="24" />
         </StackPanel>
 
-        <Popup x:Name="Dye_Shoes_Popup" PlacementTarget="{Binding ElementName=Dye_Shoes}" Placement="Bottom">
-            <ListView x:Name="Dye_Shoes_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Shoes_Filtered_SelectionChanged">
+        <Popup x:Name="Dye_Feet_Popup" PlacementTarget="{Binding ElementName=Dye_Feet}" Placement="Bottom">
+            <ListView x:Name="Dye_Feet_Filtered" Width="400" MaxHeight="150" SelectionMode="Single" SelectionChanged="Dye_Feet_Filtered_SelectionChanged">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Icone" Width="50">
@@ -650,16 +650,16 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Shoes_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Feet_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image x:Name="Dye_Shoes_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
-                <TextBlock x:Name="Dye_Shoes_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
+                <Image x:Name="Dye_Feet_imgSelectedIcon" Width="22" Height="22" Stretch="Uniform" VerticalAlignment="Center" Margin="5,0"/>
+                <TextBlock x:Name="Dye_Feet_txtSelectedName" Grid.Column="1" VerticalAlignment="Center" Margin="5,0,0,0" FontSize="10"/>
             </Grid>
-            <Button x:Name="Dye_Shoes_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Shoes_btnRemove_Click" />
+            <Button x:Name="Dye_Feet_btnRemove" Content="x" Width="16" Height="16" Margin="5 0 0 0" Click="Dye_Feet_btnRemove_Click" />
         </StackPanel>
 
         <!--Dye_Earrings-->

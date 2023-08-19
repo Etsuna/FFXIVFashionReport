@@ -14,7 +14,7 @@ namespace FFXIVFashionReport
         public ObservableCollection<Item> Body_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Hands_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Legs_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Shoes_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Feet_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Earrings_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Necklace_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Bracelets_Results { get; } = new ObservableCollection<Item>();
@@ -25,7 +25,7 @@ namespace FFXIVFashionReport
         public ObservableCollection<Item> Dye_Body_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Dye_Hands_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Dye_Legs_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Shoes_Results { get; } = new ObservableCollection<Item>();
+        public ObservableCollection<Item> Dye_Feet_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Dye_Earrings_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Dye_Necklace_Results { get; } = new ObservableCollection<Item>();
         public ObservableCollection<Item> Dye_Bracelets_Results { get; } = new ObservableCollection<Item>();
