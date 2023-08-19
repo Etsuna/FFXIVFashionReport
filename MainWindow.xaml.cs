@@ -25,8 +25,6 @@ namespace FFXIVFashionReport
         private static string Key = "cd6f068c506d418fa1699cc4e86772ccc05bdc574a664f2ba5db3db179f87a7f";
         private List<string> languageList = new List<string> { "Fr", "De", "Ja", "En" };
         private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2", "Dye_Weapon", "Dye_Head", "Dye_Body", "Dye_Hands", "Dye_Legs", "Dye_Shoes", "Dye_Earrings", "Dye_Necklace", "Dye_Bracelets", "Dye_Ring1", "Dye_Ring2" };
-        private List<int> WeaponList = new List<int>() { 9, 10, 11, 12, 13, 14, 15, 16, 18, 73, 76, 77, 78, 83, 84, 85, 86, 87, 88, 89 };
-        private Dictionary<string, int?> EquipementDictionary = new Dictionary<string, int?>() { { "Head", 31 }, { "Body", 33 }, { "Hands", 36 }, { "Legs", 35 }, { "Shoes", 37 }, { "Earrings", 40 }, { "Necklace", 39 }, { "Bracelets", 41 }, { "Ring1", 42 }, { "Ring2", 42 } };
         private HttpClient _httpClient;
         private const string ApiBaseUrl = "https://xivapi.com/search";
         private const int MillisecondsDelay = 1000;
@@ -780,196 +778,186 @@ namespace FFXIVFashionReport
 
         private void StoreItems(TextBox textBox, Item item)
         {
-            if (EquipementDictionary.ContainsKey(textBox.Name))
+            switch (textBox.Name)
             {
-                int? equipementID = EquipementDictionary[textBox.Name];
-
-                if (equipementID.HasValue && equipementID == item.itemSearchCategory.ID)
-                {
-                    switch (textBox.Name)
-                    {
-                        case "Head":
-                            Head_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Body":
-                            Body_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Hands":
-                            Hands_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Legs":
-                            Legs_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Shoes":
-                            Shoes_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Earrings":
-                            Earrings_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Necklace":
-                            Necklace_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Bracelets":
-                            Bracelets_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Ring1":
-                            Ring1_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Ring2":
-                            Ring2_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Weapon":
-                            Dye_Weapon_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Head":
-                            Dye_Head_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Body":
-                            Dye_Body_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Hands":
-                            Dye_Hands_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Legs":
-                            Dye_Legs_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Shoes":
-                            Dye_Shoes_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Earrings":
-                            Dye_Earrings_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Necklace":
-                            Dye_Necklace_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Bracelets":
-                            Dye_Bracelets_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Ring1":
-                            Dye_Ring1_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        case "Dye_Ring2":
-                            Dye_Ring2_Results.Add(new Item
-                            {
-                                ID = item.ID,
-                                Name = item.Name,
-                                Icon = item.Icon
-                            });
-                            break;
-                        default:
-                            break;
-                    }
-                }
-                else if (WeaponList.Contains(item.itemSearchCategory.ID.GetValueOrDefault()))
-                {
-                    // Ajoutez l'élément à la liste Weapon_Results ici
+                case "Weapon":
                     Weapon_Results.Add(new Item
                     {
                         ID = item.ID,
                         Name = item.Name,
                         Icon = item.Icon
                     });
-                }
+                    break;
+                case "Head":
+                    Head_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Body":
+                    Body_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Hands":
+                    Hands_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Legs":
+                    Legs_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Shoes":
+                    Shoes_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Earrings":
+                    Earrings_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Necklace":
+                    Necklace_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Bracelets":
+                    Bracelets_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Ring1":
+                    Ring1_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Ring2":
+                    Ring2_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Weapon":
+                    Dye_Weapon_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Head":
+                    Dye_Head_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Body":
+                    Dye_Body_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Hands":
+                    Dye_Hands_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Legs":
+                    Dye_Legs_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Shoes":
+                    Dye_Shoes_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Earrings":
+                    Dye_Earrings_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Necklace":
+                    Dye_Necklace_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Bracelets":
+                    Dye_Bracelets_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Ring1":
+                    Dye_Ring1_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                case "Dye_Ring2":
+                    Dye_Ring2_Results.Add(new Item
+                    {
+                        ID = item.ID,
+                        Name = item.Name,
+                        Icon = item.Icon
+                    });
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -1340,7 +1328,7 @@ namespace FFXIVFashionReport
                 return;
             }
 
-            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,Name,Icon,ID,Url&&private_key={Key}";
+            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&private_key={Key}";
 
             try
             {
@@ -1357,11 +1345,6 @@ namespace FFXIVFashionReport
 
                     foreach (var item in apiResponse.Results)
                     {
-                        if (!item.itemSearchCategory.ID.HasValue)
-                        {
-                            continue;
-                        }
-
                         StoreItems(textBox, item);
                     }
 
@@ -1448,7 +1431,7 @@ namespace FFXIVFashionReport
             {
                 var dyeCheck = false;
                 image.Source = new BitmapImage(new Uri(_selectedItem.IconUrl));
-                if (textBlock.Name.Contains("Dye"))
+                if(textBlock.Name.Contains("Dye"))
                 {
                     dyeCheck = true;
                 }
@@ -1525,14 +1508,6 @@ namespace FFXIVFashionReport
         public string UrlType { get; set; }
 
         public string IconUrl => $"https://xivapi.com{Icon}";
-
-        public ItemSearchCategory itemSearchCategory { get; set; }
-    }
-
-    public class ItemSearchCategory
-    {
-        [JsonProperty("ID")]
-        public int? ID { get; set; }
     }
 
     public class Root
