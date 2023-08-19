@@ -1332,7 +1332,7 @@ namespace FFXIVFashionReport
                 return;
             }
 
-            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,Name,Icon,Url&private_key={Key}";
+            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,Name,Icon,ID,Url&private_key={Key}";
 
             try
             {
