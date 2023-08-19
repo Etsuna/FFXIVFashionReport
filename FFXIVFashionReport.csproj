@@ -9,6 +9,7 @@
     <PackageIcon></PackageIcon>
     <Copyright>Etsuna</Copyright>
     <ApplicationIcon>Background\Icon.ico</ApplicationIcon>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
