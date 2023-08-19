@@ -20,65 +20,6 @@ namespace FFXIVFashionReport
 {
     public partial class MainWindow : Window
     {
-        #region declare
-        private static string Key = "cd6f068c506d418fa1699cc4e86772ccc05bdc574a664f2ba5db3db179f87a7f";
-        
-        private List<string> languageList = new List<string> { "Fr", "De", "Ja", "En" };
-        private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Shoes", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2", "Dye_Weapon", "Dye_Head", "Dye_Body", "Dye_Hands", "Dye_Legs", "Dye_Shoes", "Dye_Earrings", "Dye_Necklace", "Dye_Bracelets", "Dye_Ring1", "Dye_Ring2" };
-        private List<int> WeaponList = new List<int>() { 9, 10, 11, 12, 13, 14, 15, 16, 18, 73, 76, 77, 78, 83, 84, 85, 86, 87, 88, 89 };
-        private Dictionary<string, int?> EquipementDictionary = new Dictionary<string, int?>(){ { "Head", 31 }, { "Body", 33 }, { "Hands", 36 }, { "Legs", 35 }, { "Shoes", 37 }, { "Earrings", 40 }, { "Necklace", 39 }, { "Bracelets", 41 }, { "Ring1", 42 }, { "Ring2", 42 }};
-        
-        private HttpClient _httpClient;
-        private const string ApiBaseUrl = "https://xivapi.com/search";
-        private const int MillisecondsDelay = 1000;
-        private const int SaveMillisecondsDelay = 2000;
-        
-        private Item _Weapon_selectedItem;
-        private Item _Head_selectedItem;
-        private Item _Body_selectedItem;
-        private Item _Hands_selectedItem;
-        private Item _Legs_selectedItem;
-        private Item _Shoes_selectedItem;
-        private Item _Earrings_selectedItem;
-        private Item _Necklace_selectedItem;
-        private Item _Bracelets_selectedItem;
-        private Item _Ring1_selectedItem;
-        private Item _Ring2_selectedItem;
-        private Item _Dye_Weapon_selectedItem;
-        private Item _Dye_Head_selectedItem;
-        private Item _Dye_Body_selectedItem;
-        private Item _Dye_Hands_selectedItem;
-        private Item _Dye_Legs_selectedItem;
-        private Item _Dye_Shoes_selectedItem;
-        private Item _Dye_Earrings_selectedItem;
-        private Item _Dye_Necklace_selectedItem;
-        private Item _Dye_Bracelets_selectedItem;
-        private Item _Dye_Ring1_selectedItem;
-        private Item _Dye_Ring2_selectedItem;
-
-        public ObservableCollection<Item> Weapon_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Head_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Body_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Hands_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Legs_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Shoes_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Earrings_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Necklace_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Bracelets_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Ring1_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Ring2_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Weapon_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Head_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Body_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Hands_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Legs_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Shoes_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Earrings_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Necklace_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Bracelets_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Ring1_Results { get; } = new ObservableCollection<Item>();
-        public ObservableCollection<Item> Dye_Ring2_Results { get; } = new ObservableCollection<Item>();
-
         public MainWindow()
         {
             InitializeComponent();
@@ -106,7 +47,6 @@ namespace FFXIVFashionReport
             Dye_Ring1_Filtered.ItemsSource = Dye_Ring1_Results;
             Dye_Ring2_Filtered.ItemsSource = Dye_Ring2_Results;
         }
-        #endregion
 
         #region Weapon
         private async void Weapon_KeyDown(object sender, KeyEventArgs e)
@@ -707,77 +647,35 @@ namespace FFXIVFashionReport
         #region Equipments and Dye
         private void ClearResults(TextBox textBox)
         {
+            ObservableCollection<Item> results = null;
+
             switch (textBox.Name)
             {
-                case "Weapon":
-                    Weapon_Results.Clear();
-                    break;
-                case "Head":
-                    Head_Results.Clear();
-                    break;
-                case "Body":
-                    Body_Results.Clear();
-                    break;
-                case "Hands":
-                    Hands_Results.Clear();
-                    break;
-                case "Legs":
-                    Legs_Results.Clear();
-                    break;
-                case "Shoes":
-                    Shoes_Results.Clear();
-                    break;
-                case "Earrings":
-                    Earrings_Results.Clear();
-                    break;
-                case "Necklace":
-                    Necklace_Results.Clear();
-                    break;
-                case "Bracelets":
-                    Bracelets_Results.Clear();
-                    break;
-                case "Ring1":
-                    Ring1_Results.Clear();
-                    break;
-                case "Ring2":
-                    Ring2_Results.Clear();
-                    break;
-                case "Dye_Weapon":
-                    Dye_Weapon_Results.Clear();
-                    break;
-                case "Dye_Head":
-                    Dye_Head_Results.Clear();
-                    break;
-                case "Dye_Body":
-                    Dye_Body_Results.Clear();
-                    break;
-                case "Dye_Hands":
-                    Dye_Hands_Results.Clear();
-                    break;
-                case "Dye_Legs":
-                    Dye_Legs_Results.Clear();
-                    break;
-                case "Dye_Shoes":
-                    Dye_Shoes_Results.Clear();
-                    break;
-                case "Dye_Earrings":
-                    Dye_Earrings_Results.Clear();
-                    break;
-                case "Dye_Necklace":
-                    Dye_Necklace_Results.Clear();
-                    break;
-                case "Dye_Bracelets":
-                    Dye_Bracelets_Results.Clear();
-                    break;
-                case "Dye_Ring1":
-                    Dye_Ring1_Results.Clear();
-                    break;
-                case "Dye_Ring2":
-                    Dye_Ring2_Results.Clear();
-                    break;
-                default:
-                    break;
+                case "Weapon": results = Weapon_Results; break;
+                case "Head": results = Head_Results; break;
+                case "Body": results = Body_Results; break;
+                case "Hands": results = Hands_Results; break;
+                case "Legs": results = Legs_Results; break;
+                case "Shoes": results = Shoes_Results; break;
+                case "Earrings": results = Earrings_Results; break;
+                case "Necklace": results = Necklace_Results; break;
+                case "Bracelets": results = Bracelets_Results; break;
+                case "Ring1": results = Ring1_Results; break;
+                case "Ring2": results = Ring2_Results; break;
+                case "Dye_Weapon": results = Dye_Weapon_Results; break;
+                case "Dye_Head": results = Dye_Head_Results; break;
+                case "Dye_Body": results = Dye_Body_Results; break;
+                case "Dye_Hands": results = Dye_Hands_Results; break;
+                case "Dye_Legs": results = Dye_Legs_Results; break;
+                case "Dye_Shoes": results = Dye_Shoes_Results; break;
+                case "Dye_Earrings": results = Dye_Earrings_Results; break;
+                case "Dye_Necklace": results = Dye_Necklace_Results; break;
+                case "Dye_Bracelets": results = Dye_Bracelets_Results; break;
+                case "Dye_Ring1": results = Dye_Ring1_Results; break;
+                case "Dye_Ring2": results = Dye_Ring2_Results; break;
             }
+
+            results?.Clear();
         }
 
         private void StoreItems(TextBox textBox, Item item)
@@ -965,680 +863,70 @@ namespace FFXIVFashionReport
             }
         }
 
-        private List<Item> FiltedItems(TextBox textBox, ListView listView, string filterText, List<Item> filteredItems)
+        private List<Item> FiltedItems(TextBox textBox, ListView listView, string filterText)
         {
-            switch (textBox.Name)
+            ObservableCollection<Item> itemsCollection = GetItemsCollection(textBox.Name);
+
+            if (itemsCollection != null)
             {
-                case "Weapon":
-                    filteredItems = Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Weapon_Results;
-                    break;
-                case "Head":
-                    filteredItems = Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Head_Results;
-                    break;
-                case "Body":
-                    filteredItems = Body_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Body_Results;
-                    break;
-                case "Hands":
-                    filteredItems = Hands_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Hands_Results;
-                    break;
-                case "Legs":
-                    filteredItems = Legs_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Legs_Results;
-                    break;
-                case "Shoes":
-                    filteredItems = Shoes_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Shoes_Results;
-                    break;
-                case "Earrings":
-                    filteredItems = Earrings_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Earrings_Results;
-                    break;
-                case "Necklace":
-                    filteredItems = Necklace_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Necklace_Results;
-                    break;
-                case "Bracelets":
-                    filteredItems = Bracelets_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Bracelets_Results;
-                    break;
-                case "Ring1":
-                    filteredItems = Ring1_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Ring1_Results;
-                    break;
-                case "Ring2":
-                    filteredItems = Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Ring2_Results;
-                    break;
-                case "Dye_Weapon":
-                    filteredItems = Dye_Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Weapon_Results;
-                    break;
-                case "Dye_Head":
-                    filteredItems = Dye_Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Head_Results;
-                    break;
-                case "Dye_Body":
-                    filteredItems = Dye_Body_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Body_Results;
-                    break;
-                case "Dye_Hands":
-                    filteredItems = Dye_Hands_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Hands_Results;
-                    break;
-                case "Dye_Legs":
-                    filteredItems = Dye_Legs_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Legs_Results;
-                    break;
-                case "Dye_Shoes":
-                    filteredItems = Dye_Shoes_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Shoes_Results;
-                    break;
-                case "Dye_Earrings":
-                    filteredItems = Dye_Earrings_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Earrings_Results;
-                    break;
-                case "Dye_Necklace":
-                    filteredItems = Dye_Necklace_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Necklace_Results;
-                    break;
-                case "Dye_Bracelets":
-                    filteredItems = Dye_Bracelets_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Bracelets_Results;
-                    break;
-                case "Dye_Ring1":
-                    filteredItems = Dye_Ring1_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Ring1_Results;
-                    break;
-                case "Dye_Ring2":
-                    filteredItems = Dye_Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Ring2_Results;
-                    break;
-                default:
-                    break;
+                listView.ItemsSource = itemsCollection;
+                return itemsCollection.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
             }
-            return filteredItems;
+
+            return new List<Item>();
         }
 
-        private List<Item> ResultItems(TextBox textBox, ListView listView, string filterText, List<Item> filteredItems)
+        private List<Item> ResultItems(TextBox textBox, ListView listView, string filterText)
         {
-            switch (textBox.Name)
+            ObservableCollection<Item> itemsCollection = GetItemsCollection(textBox.Name);
+
+            if (itemsCollection != null)
             {
-                case "Weapon":
-                    filteredItems = Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Weapon_Results;
-                    break;
-                case "Head":
-                    filteredItems = Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Head_Results;
-                    break;
-                case "Body":
-                    filteredItems = Body_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Body_Results;
-                    break;
-                case "Hands":
-                    filteredItems = Hands_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Hands_Results;
-                    break;
-                case "Legs":
-                    filteredItems = Legs_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Legs_Results;
-                    break;
-                case "Shoes":
-                    filteredItems = Shoes_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Shoes_Results;
-                    break;
-                case "Earrings":
-                    filteredItems = Earrings_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Earrings_Results;
-                    break;
-                case "Necklace":
-                    filteredItems = Necklace_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Necklace_Results;
-                    break;
-                case "Bracelets":
-                    filteredItems = Bracelets_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Bracelets_Results;
-                    break;
-                case "Ring1":
-                    filteredItems = Ring1_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Ring1_Results;
-                    break;
-                case "Ring2":
-                    filteredItems = Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Ring2_Results;
-                    break;
-                case "Dye_Weapon":
-                    filteredItems = Dye_Weapon_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Weapon_Results;
-                    break;
-                case "Dye_Head":
-                    filteredItems = Dye_Head_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Head_Results;
-                    break;
-                case "Dye_Body":
-                    filteredItems = Dye_Body_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Body_Results;
-                    break;
-                case "Dye_Hands":
-                    filteredItems = Dye_Hands_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Hands_Results;
-                    break;
-                case "Dye_Legs":
-                    filteredItems = Dye_Legs_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Legs_Results;
-                    break;
-                case "Dye_Shoes":
-                    filteredItems = Dye_Shoes_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Shoes_Results;
-                    break;
-                case "Dye_Earrings":
-                    filteredItems = Dye_Earrings_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Earrings_Results;
-                    break;
-                case "Dye_Necklace":
-                    filteredItems = Dye_Necklace_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Necklace_Results;
-                    break;
-                case "Dye_Bracelets":
-                    filteredItems = Dye_Bracelets_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Bracelets_Results;
-                    break;
-                case "Dye_Ring1":
-                    filteredItems = Dye_Ring1_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Ring1_Results;
-                    break;
-                case "Dye_Ring2":
-                    filteredItems = Dye_Ring2_Results.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
-                    listView.ItemsSource = Dye_Ring2_Results;
-                    break;
-                default:
-                    break;
+                listView.ItemsSource = itemsCollection;
+                return itemsCollection.Where(item => item.Name.ToLower().Contains(filterText)).ToList();
             }
 
-            return filteredItems;
+            return new List<Item>();
+        }
+
+        private ObservableCollection<Item> GetItemsCollection(string textBoxName)
+        {
+            // Use a dictionary to map textBoxName to the corresponding collection
+            Dictionary<string, ObservableCollection<Item>> collections = new Dictionary<string, ObservableCollection<Item>>
+            {
+                { "Weapon", Weapon_Results },
+                { "Head", Head_Results },
+                { "Body", Body_Results },
+                { "Hands", Hands_Results },
+                { "Legs", Legs_Results },
+                { "Shoes", Shoes_Results },
+                { "Earrings", Earrings_Results },
+                { "Necklace", Necklace_Results },
+                { "Bracelets", Bracelets_Results },
+                { "Ring1", Ring1_Results },
+                { "Ring2", Ring2_Results },
+                { "Dye_Weapon", Dye_Weapon_Results },
+                { "Dye_Head", Dye_Head_Results },
+                { "Dye_Body", Dye_Body_Results },
+                { "Dye_Hands", Dye_Hands_Results },
+                { "Dye_Legs", Dye_Legs_Results },
+                { "Dye_Shoes", Dye_Shoes_Results },
+                { "Dye_Earrings", Dye_Earrings_Results },
+                { "Dye_Necklace", Dye_Necklace_Results },
+                { "Dye_Bracelets", Dye_Bracelets_Results },
+                { "Dye_Ring1", Dye_Ring1_Results },
+                { "Dye_Ring2", Dye_Ring2_Results }
+            };
+
+            if (collections.TryGetValue(textBoxName, out var itemsCollection))
+            {
+                return itemsCollection;
+            }
+
+            return null;
         }
         #endregion
 
-        #region ScreenShot
-        private async Task<Dictionary<string, string>> GetItemInfoDictionaryAsync(Item selectedItem, string typeName, Dictionary<string, string> listName)
-        {
-            if (selectedItem != null)
-            {
-                Root itemInfo = await GetItemInfo(selectedItem.ID);
-                listName.Add($"{typeName}Fr", itemInfo.Name_fr);
-                listName.Add($"{typeName}De", itemInfo.Name_de);
-                listName.Add($"{typeName}Ja", itemInfo.Name_ja);
-                listName.Add($"{typeName}En", itemInfo.Name_en);
-                SetXButtonVisibility(typeName, Visibility.Collapsed);
-            }
-            else
-            {
-                SetVisibility(typeName, Visibility.Collapsed);
-            }
-
-            return listName;
-        }
-
-        private void SetXButtonVisibility(string typeName, Visibility visibility)
-        {
-            var button = FindName($"{typeName}_btnRemove") as Button;
-            if (button != null)
-            {
-                button.Visibility = visibility;
-            }
-        }
-
-        private void SetVisibility(string typeName, Visibility visibility)
-        {
-            var textBox = FindName($"{typeName}") as TextBox;
-            if (textBox != null)
-            {
-                textBox.Visibility = visibility;
-            }
-        }
-
-        private void ResetVisibility(string Equipment, Visibility visibility)
-        {
-            var textBox = FindName($"{Equipment}") as TextBox;
-
-            if (string.IsNullOrEmpty(textBox.Text))
-            {
-                textBox.Visibility = visibility;
-            }
-        }
-
-        private async void MakeFashionReport_btnRemove_Click(object sender, RoutedEventArgs e)
-        {
-            var listName = new Dictionary<string, string>();
-
-            listName = await GetItemInfoDictionaryAsync(_Weapon_selectedItem, "Weapon", listName);
-            listName = await GetItemInfoDictionaryAsync(_Head_selectedItem, "Head", listName);
-            listName = await GetItemInfoDictionaryAsync(_Body_selectedItem, "Body", listName);
-            listName = await GetItemInfoDictionaryAsync(_Hands_selectedItem, "Hands", listName);
-            listName = await GetItemInfoDictionaryAsync(_Legs_selectedItem, "Legs", listName);
-            listName = await GetItemInfoDictionaryAsync(_Shoes_selectedItem, "Shoes", listName);
-            listName = await GetItemInfoDictionaryAsync(_Earrings_selectedItem, "Earrings", listName);
-            listName = await GetItemInfoDictionaryAsync(_Necklace_selectedItem, "Necklace", listName);
-            listName = await GetItemInfoDictionaryAsync(_Bracelets_selectedItem, "Bracelets", listName);
-            listName = await GetItemInfoDictionaryAsync(_Ring1_selectedItem, "Ring1", listName);
-            listName = await GetItemInfoDictionaryAsync(_Ring2_selectedItem, "Ring2", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Weapon_selectedItem, "Dye_Weapon", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Head_selectedItem, "Dye_Head", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Body_selectedItem, "Dye_Body", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Hands_selectedItem, "Dye_Hands", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Legs_selectedItem, "Dye_Legs", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Shoes_selectedItem, "Dye_Shoes", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Earrings_selectedItem, "Dye_Earrings", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Necklace_selectedItem, "Dye_Necklace", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Bracelets_selectedItem, "Dye_Bracelets", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Ring1_selectedItem, "Dye_Ring1", listName);
-            listName = await GetItemInfoDictionaryAsync(_Dye_Ring2_selectedItem, "Dye_Ring2", listName);
-
-            Make_Fashion_Report.Visibility = Visibility.Collapsed;
-            cmbLanguages.Visibility = Visibility.Collapsed;
-            LanguageTextBlock.Visibility = Visibility.Collapsed;
-
-            await CaptureScreenshotAsync(listName);
-
-            foreach (var equipment in EquipmentList)
-            {
-                ResetVisibility(equipment, Visibility.Visible);
-                SetXButtonVisibility(equipment, Visibility.Visible);
-            }
-
-            Make_Fashion_Report.Visibility = Visibility.Visible;
-            cmbLanguages.Visibility = Visibility.Visible;
-            LanguageTextBlock.Visibility = Visibility.Visible;
-        }
-
-        private async Task CaptureScreenshotAsync(Dictionary<string, string> listName)
-        {
-            foreach (var language in languageList)
-            {
-                string fileName = $"Fashion_Report_{Fashion_Report_Number.Text}_{language}.png";
-
-                foreach (var equipment in EquipmentList)
-                {
-                    UpdateTextLanguage(listName, equipment, language);
-                }
-
-                await Task.Delay(SaveMillisecondsDelay);
-                RenderAndSaveScreenshot(fileName);
-            }
-
-            MessageBox.Show("Screenshot captured and saved");
-        }
-
-        private void UpdateTextLanguage(Dictionary<string, string> listName, string Equipment, string language)
-        {
-            var textBox = FindName($"{Equipment}_txtSelectedName") as TextBlock;
-            if (textBox != null)
-            {
-                var dyeCheck = false;
-                var key = $"{Equipment}{language}";
-                if (listName.TryGetValue(key, out string value))
-                {
-                    if (textBox.Name.Contains("Dye"))
-                    {
-                        dyeCheck = true;
-                    }
-                    byte[] bytes = Encoding.UTF8.GetBytes(value);
-                    string searchText = Encoding.UTF8.GetString(bytes);
-                    textBox.Text = BreakNameIntoMultipleLines(dyeCheck, searchText);
-                }
-            }
-        }
-
-        private void RenderAndSaveScreenshot(string fileName)
-        {
-            RenderTargetBitmap renderTargetBitmap = new RenderTargetBitmap(
-                (int)this.ActualWidth,
-                (int)this.ActualHeight,
-                96, 96,
-                PixelFormats.Default);
-
-            renderTargetBitmap.Render(this);
-
-            BitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(renderTargetBitmap));
-
-            using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
-            {
-                encoder.Save(fileStream);
-            }
-        }
-        #endregion
-
-        #region Program
-        private async Task SearchInfos(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, ListView listView, Item _selectedItem)
-        {
-            byte[] bytes = Encoding.UTF8.GetBytes(textBox.Text);
-
-            string searchText = Encoding.UTF8.GetString(bytes);
-
-            await Task.Delay(MillisecondsDelay);
-
-            ClearResults(textBox);
-
-            var searchTerm = searchText;
-            var selectedLanguage = (cmbLanguages.SelectedItem as ComboBoxItem)?.Content.ToString();
-
-            if (string.IsNullOrWhiteSpace(searchTerm) || string.IsNullOrWhiteSpace(selectedLanguage))
-            {
-                return;
-            }
-
-            var apiUrl = $"{ApiBaseUrl}?string={searchTerm}&language={selectedLanguage}&indexes=item,recipe&limit=250&Columns=ItemSearchCategory.ID,Name,Icon,ID,Url&private_key={Key}";
-
-            try
-            {
-                int page = 1;
-                ApiResponse apiResponse;
-
-                do
-                {
-                    var response = await _httpClient.GetAsync(apiUrl + $"&page={page}");
-                    response.EnsureSuccessStatusCode();
-
-                    var responseBody = await response.Content.ReadAsStringAsync();
-                    apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseBody);
-                    GetItemsByType(textBox, apiResponse);
-
-                    page++;
-                } while (page <= apiResponse.Pagination.PageTotal && apiResponse.Pagination.PageNext != null);
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show($"Une erreur s'est produite lors de la requête : {ex.Message}");
-            }
-
-            string filterText = textBox.Text.ToLower();
-            List<Item> filteredItems = new List<Item>();
-            filteredItems = FiltedItems(textBox, listView, filterText, filteredItems);
-
-            if (filterText.Length > 0 && filteredItems.Count > 0)
-            {
-                popup.IsOpen = true;
-            }
-            else
-            {
-                popup.IsOpen = false;
-            }
-
-            filteredItems = ResultItems(textBox, listView, filterText, filteredItems);
-
-            UpdateSelectedResultUI(image, textBlock, stackPanel, textBox, popup, _selectedItem);
-        }
-
-        private void GetItemsByType(TextBox textBox, ApiResponse apiResponse)
-        {
-            int dyeCategoryId = 54;
-
-            foreach (var item in apiResponse.Results)
-            {
-                if (!item.itemSearchCategory.ID.HasValue)
-                {
-                    continue;
-                }
-
-                var categoryName = textBox.Name;
-
-                if (EquipementDictionary.TryGetValue(categoryName, out var expectedCategoryId))
-                {
-                    if (expectedCategoryId == null || item.itemSearchCategory.ID == expectedCategoryId)
-                    {
-                        StoreItems(textBox, item);
-                    }
-                }
-                else if (categoryName == "Weapon" && WeaponList.Contains(item.itemSearchCategory.ID.GetValueOrDefault()))
-                {
-                    StoreItems(textBox, item);
-                }
-                else if (categoryName.Contains("Dye") && item.itemSearchCategory.ID == dyeCategoryId)
-                {
-                    StoreItems(textBox, item);
-                }
-            }
-        }
-
-        private string BreakNameIntoMultipleLines(bool dyeCheck, string name)
-        {
-            int maxLineLength;
-            if (dyeCheck)
-            {
-                maxLineLength = 10;
-            }
-            else
-            {
-                maxLineLength = 25;
-            }
-
-            if (name.Length <= maxLineLength)
-            {
-                return name;
-            }
-
-            StringBuilder result = new StringBuilder();
-            int currentIndex = 0;
-
-            while (currentIndex < name.Length)
-            {
-                int remainingLength = name.Length - currentIndex;
-                int lineLength = Math.Min(maxLineLength, remainingLength);
-
-                int lastSpaceIndex = name.LastIndexOf(' ', currentIndex + lineLength - 1, lineLength);
-                int lastHyphenIndex = name.LastIndexOf('-', currentIndex + lineLength - 1, lineLength);
-
-                if (lastHyphenIndex > lastSpaceIndex)
-                {
-                    lastSpaceIndex = lastHyphenIndex;
-                }
-
-                if (lastSpaceIndex <= currentIndex)
-                {
-                    lastSpaceIndex = currentIndex + lineLength;
-                }
-
-                result.AppendLine(name.Substring(currentIndex, lastSpaceIndex - currentIndex));
-                currentIndex = lastSpaceIndex + 1;
-
-                while (currentIndex < name.Length && (name[currentIndex] == ' ' || name[currentIndex] == '-'))
-                {
-                    currentIndex++;
-                }
-            }
-
-            return result.ToString().Trim();
-        }
-
-
-        private void UpdateSelectedResultUI(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, Item _selectedItem)
-        {
-            if (_selectedItem != null)
-            {
-                var dyeCheck = false;
-                image.Source = new BitmapImage(new Uri(_selectedItem.IconUrl));
-                if(textBlock.Name.Contains("Dye"))
-                {
-                    dyeCheck = true;
-                }
-                textBlock.Text = BreakNameIntoMultipleLines(dyeCheck, _selectedItem.Name);
-                stackPanel.Visibility = Visibility.Visible;
-
-                Point txtSearchTermPosition = textBox.TranslatePoint(new Point(0, 0), this);
-
-                stackPanel.Margin = new Thickness(txtSearchTermPosition.X, txtSearchTermPosition.Y, 0, 0);
-
-                textBox.Visibility = Visibility.Collapsed;
-
-                popup.IsOpen = false;
-            }
-            else
-            {
-                stackPanel.Visibility = Visibility.Collapsed;
-                textBox.Visibility = Visibility.Visible;
-            }
-        }
-
-        public async Task<Root> GetItemInfo(int itemId)
-        {
-            var apiUrl = $"https://xivapi.com/item/{itemId}";
-            Root itemInfo = null;
-            try
-            {
-                var response = await _httpClient.GetAsync(apiUrl);
-                response.EnsureSuccessStatusCode();
-
-                var responseBody = await response.Content.ReadAsStringAsync();
-                itemInfo = JsonConvert.DeserializeObject<Root>(responseBody);
-            }
-            catch (HttpRequestException ex)
-            {
-                MessageBox.Show($"Une erreur s'est produite lors de la requête : {ex.Message}");
-            }
-
-            return itemInfo;
-        }
-        #endregion
+        
     }
-
-    #region Json
-    public class ApiResponse
-    {
-        public List<Item> Results { get; set; }
-
-        public Pagination Pagination { get; set; }
-    }
-
-    public class Pagination
-    {
-        public int Page { get; set; }
-        public int PageTotal { get; set; }
-        public string PageNext { get; set; }
-        public string PagePrev { get; set; }
-        public int Results { get; set; }
-        public int ResultsPerPage { get; set; }
-    }
-
-    public class Item
-    {
-        [JsonProperty("ID")]
-        public int ID { get; set; }
-
-        [JsonProperty("Name")]
-        public string Name { get; set; }
-
-        [JsonProperty("Icon")]
-        public string Icon { get; set; }
-
-        [JsonProperty("UrlType")]
-        public string UrlType { get; set; }
-
-        public string IconUrl => $"https://xivapi.com{Icon}";
-
-        public ItemSearchCategory itemSearchCategory { get; set; }
-    }
-
-    public class Root
-    {
-        [JsonProperty("Name")]
-        public string Name { get; set; }
-
-        [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
-
-        [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
-
-        [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
-
-        [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
-
-        [JsonProperty("Description_de")]
-        public string Description_de { get; set; }
-
-        [JsonProperty("Description_en")]
-        public string Description_en { get; set; }
-
-        [JsonProperty("Description_fr")]
-        public string Description_fr { get; set; }
-
-        [JsonProperty("Description_ja")]
-        public string Description_ja { get; set; }
-
-        [JsonProperty("PriceMid")]
-        public long PriceMid { get; set; }
-
-        [JsonProperty("ItemUICategory")]
-        public ItemKind itemKind { get; set; }
-
-        [JsonProperty("classJobCategory")]
-        public ClassJobCategory classJobCategory { get; set; }
-        public ItemSoulCrystal itemSoulCrystal { get; set; }
-
-      
-    }
-
-    public class ItemSearchCategory
-    {
-        [JsonProperty("ID")]
-        public int? ID { get; set; }
-    }
-
-    public class ItemKind
-    {
-        [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
-
-        [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
-
-        [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
-
-        [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
-    }
-
-    public class ClassJobCategory
-    {
-        [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
-
-        [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
-
-        [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
-
-        [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
-    }
-
-    public class ClassJobUse
-    {
-        [JsonProperty("Name_de")]
-        public string Name_de { get; set; }
-
-        [JsonProperty("Name_en")]
-        public string Name_en { get; set; }
-
-        [JsonProperty("Name_fr")]
-        public string Name_fr { get; set; }
-
-        [JsonProperty("Name_ja")]
-        public string Name_ja { get; set; }
-    }
-
-    public class ItemSoulCrystal
-    {
-        public ClassJobUse classJobUse { get; set; }
-    }
-    #endregion
 }
