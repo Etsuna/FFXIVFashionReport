@@ -23,6 +23,7 @@ namespace FFXIVFashionReport
                 listName.Add($"{typeName}Ja", itemInfo.Name_ja);
                 listName.Add($"{typeName}En", itemInfo.Name_en);
                 SetXButtonVisibility(typeName, Visibility.Collapsed);
+                SetLinkVisibility(typeName, Visibility.Collapsed);
             }
             else
             {
@@ -41,6 +42,15 @@ namespace FFXIVFashionReport
             }
         }
 
+        private void SetLinkVisibility(string typeName, Visibility visibility)
+        {
+            var link = FindName($"{typeName}_Link") as Label;
+            if (link != null)
+            {
+                link.Visibility = visibility;
+            }
+        }
+
         private void SetVisibility(string typeName, Visibility visibility)
         {
             var textBox = FindName($"{typeName}") as TextBox;
@@ -53,10 +63,15 @@ namespace FFXIVFashionReport
         private void ResetVisibility(string Equipment, Visibility visibility)
         {
             var textBox = FindName($"{Equipment}") as TextBox;
+            var link = FindName($"{Equipment}_Link") as Label;
 
             if (string.IsNullOrEmpty(textBox.Text))
             {
                 textBox.Visibility = visibility;
+            }
+            else
+            {
+                link.Visibility = visibility;
             }
         }
 
