@@ -1,5 +1,7 @@
 # FFXIVFashionReport
  FFXIV Fashion Report Generator
+
+- For Fork, Make an App.config file and add your XIVAPI Dev Key
  
 this application allows to generate the Fashion Report for all languages.
 
@@ -30,3 +32,5 @@ this application allows to generate the Fashion Report for all languages.
 - A png file will be generated for each language in the program folder.
 
 ![07](https://github.com/Etsuna/FFXIVFashionReport/assets/47378314/9d9338bc-7529-4793-b66d-2d835613bfe7)
+
+
