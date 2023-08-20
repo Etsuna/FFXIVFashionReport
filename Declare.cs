@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FFXIVFashionReport
 {
     public partial class MainWindow
     {
-        private static string Key = "cd6f068c506d418fa1699cc4e86772ccc05bdc574a664f2ba5db3db179f87a7f";
+        private static readonly string Key = ConfigurationManager.AppSettings["Key"];
 
         private List<string> languageList = new List<string> { "Fr", "De", "Ja", "En" };
         private List<string> EquipmentList = new List<string> { "Weapon", "Head", "Body", "Hands", "Legs", "Feet", "Earrings", "Necklace", "Bracelets", "Ring1", "Ring2", "Dye_Weapon", "Dye_Head", "Dye_Body", "Dye_Hands", "Dye_Legs", "Dye_Feet", "Dye_Earrings", "Dye_Necklace", "Dye_Bracelets", "Dye_Ring1", "Dye_Ring2" };

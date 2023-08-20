@@ -12,6 +12,7 @@ release/
 *.user
 *.userprefs
 *.sln.docstates
+App.config
 
 # NuGet
 packages/
