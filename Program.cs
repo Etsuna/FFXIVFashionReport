@@ -13,7 +13,7 @@ namespace FFXIVFashionReport
 {
     public partial class MainWindow
     {
-        private async Task SearchInfos(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, ListView listView, Item _selectedItem)
+        private async Task SearchInfos(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, ListView listView, Item _selectedItem, Label label)
         {
             byte[] bytes = Encoding.UTF8.GetBytes(textBox.Text);
 
@@ -70,7 +70,7 @@ namespace FFXIVFashionReport
 
             ResultItems(textBox, listView, filterText);
 
-            UpdateSelectedResultUI(image, textBlock, stackPanel, textBox, popup, _selectedItem);
+            UpdateSelectedResultUI(image, textBlock, stackPanel, textBox, popup, _selectedItem, label);
         }
 
         private void GetItemsByType(TextBox textBox, ApiResponse apiResponse)
@@ -162,7 +162,7 @@ namespace FFXIVFashionReport
         }
 
 
-        private void UpdateSelectedResultUI(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, Item _selectedItem)
+        private void UpdateSelectedResultUI(Image image, TextBlock textBlock, StackPanel stackPanel, TextBox textBox, Popup popup, Item _selectedItem, Label label)
         {
             if (_selectedItem != null)
             {
@@ -174,6 +174,7 @@ namespace FFXIVFashionReport
                 }
                 textBlock.Text = BreakNameIntoMultipleLines(dyeCheck, _selectedItem.Name);
                 stackPanel.Visibility = Visibility.Visible;
+                label.Visibility = Visibility.Visible;
 
                 Point txtSearchTermPosition = textBox.TranslatePoint(new Point(0, 0), this);
 
@@ -187,6 +188,7 @@ namespace FFXIVFashionReport
             {
                 stackPanel.Visibility = Visibility.Collapsed;
                 textBox.Visibility = Visibility.Visible;
+                label.Visibility = Visibility.Collapsed;
             }
         }
 

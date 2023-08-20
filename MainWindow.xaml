@@ -896,5 +896,31 @@
         <TextBlock HorizontalAlignment="Left" Margin="486,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="27" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="22" Text="Fashion Report #&#xD;&#xA;"/>
         <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="634,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontFamily="Great Vibes" FontSize="22" Width="76" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
         <TextBlock HorizontalAlignment="Left" Margin="636,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="72" FontFamily="Great Vibes" FontSize="36"><Run Language="fr-fr" Text="Dye"/><LineBreak/><Run Language="fr-fr"/></TextBlock>
+        
+        <!--Link Equipment-->
+        <Label x:Name="Weapon_Link" Content="Link" HorizontalAlignment="Left" Margin="186,191,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Weapon_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Head_Link" Content="Link" HorizontalAlignment="Left" Margin="186,276,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Head_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Body_Link" Content="Link" HorizontalAlignment="Left" Margin="186,361,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Body_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Hands_Link" Content="Link" HorizontalAlignment="Left" Margin="186,446,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Hands_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Legs_Link" Content="Link" HorizontalAlignment="Left" Margin="186,532,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Legs_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Feet_Link" Content="Link" HorizontalAlignment="Left" Margin="186,619,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Feet_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Earrings_Link" Content="Link" HorizontalAlignment="Left" Margin="990,271,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Earrings_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Necklace_Link" Content="Link" HorizontalAlignment="Left" Margin="990,358,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Necklace_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Bracelets_Link" Content="Link" HorizontalAlignment="Left" Margin="990,445,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Bracelets_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Ring1_Link" Content="Link" HorizontalAlignment="Left" Margin="990,532,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Ring1_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Ring2_Link" Content="Link" HorizontalAlignment="Left" Margin="990,616,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Ring2_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+
+        <!--Link Dye-->
+        <Label x:Name="Dye_Weapon_Link" Content="Link" HorizontalAlignment="Left" Margin="512,188,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Dye_Weapon_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Head_Link" Content="Link" HorizontalAlignment="Left" Margin="512,274,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Dye_Head_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Body_Link" Content="Link" HorizontalAlignment="Left" Margin="512,360,0,0" VerticalAlignment="Top" Height="22" Width="26" FontSize="9" MouseDown="Dye_Body_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Hands_Link" Content="Link" HorizontalAlignment="Left" Margin="512,444,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Dye_Hands_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Legs_Link" Content="Link" HorizontalAlignment="Left" Margin="512,529,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Dye_Legs_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Feet_Link" Content="Link" HorizontalAlignment="Left" Margin="512,613,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Dye_Feet_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Earrings_Link" Content="Link" HorizontalAlignment="Left" Margin="659,273,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Dye_Earrings_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Necklace_Link" Content="Link" HorizontalAlignment="Left" Margin="658,360,0,0" VerticalAlignment="Top" Height="22" Width="26" FontSize="9" MouseDown="Dye_Necklace_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Bracelets_Link" Content="Link" HorizontalAlignment="Left" Margin="658,445,0,0" VerticalAlignment="Top" Height="22" Width="26" FontSize="9" MouseDown="Dye_Bracelets_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Ring1_Link" Content="Link" HorizontalAlignment="Left" Margin="658,529,0,0" VerticalAlignment="Top" Height="22" Width="26" FontSize="9" MouseDown="Dye_Ring1_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
+        <Label x:Name="Dye_Ring2_Link" Content="Link" HorizontalAlignment="Left" Margin="658,613,0,0" VerticalAlignment="Top" Height="22" Width="26" FontSize="9" MouseDown="Dye_Ring2_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
     </Grid>
 </Window>

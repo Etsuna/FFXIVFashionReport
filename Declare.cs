@@ -17,5 +17,6 @@ namespace FFXIVFashionReport
         private const string ApiBaseUrl = "https://xivapi.com/search";
         private const int MillisecondsDelay = 1000;
         private const int SaveMillisecondsDelay = 2000;
+        private const string linkBaseUrl = "https://ffxivteamcraft.com/db/fr/item/";
     }
 }
