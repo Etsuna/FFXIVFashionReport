@@ -874,7 +874,7 @@
         Foreground="Black"
         BorderBrush="#FF978565"
         BorderThickness="2"
-        Margin="0,656,0,0" FontFamily="Great Vibes" FontSize="18" FontWeight="Bold">
+        Margin="0,656,0,0" FontFamily="French Script MT" FontSize="22" FontWeight="Bold">
             <Button.Style>
                 <Style TargetType="Button">
                     <Setter Property="Template">
@@ -893,10 +893,10 @@
                 </Style>
             </Button.Style>
         </Button>
-        <TextBlock HorizontalAlignment="Left" Margin="486,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="185" Height="27" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="Great Vibes" FontSize="22" Text="Fashion Report #&#xD;&#xA;"/>
-        <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="634,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontFamily="Great Vibes" FontSize="22" Width="76" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
-        <TextBlock HorizontalAlignment="Left" Margin="636,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="46" Width="72" FontFamily="Great Vibes" FontSize="36"><Run Language="fr-fr" Text="Dye"/><LineBreak/><Run Language="fr-fr"/></TextBlock>
-        
+        <TextBlock HorizontalAlignment="Center" Margin="0,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" Height="27" FontWeight="Bold" Foreground="#FFC2B282" FontFamily="French Script MT" FontSize="24" Text="Fashion Report #&#xD;&#xA;"/>
+        <TextBox x:Name="Fashion_Report_Number" HorizontalAlignment="Left" Margin="648,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" FontFamily="French Script MT" FontSize="24" Width="76" Foreground="#FFC2B282" Background="{x:Null}" Text="Number" BorderBrush="{x:Null}" FontWeight="Bold" RenderTransformOrigin="-0.237,0.85"/>
+        <TextBlock HorizontalAlignment="Left" Margin="634,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="59" Width="74" FontFamily="French Script MT" FontSize="48"><Run Language="fr-fr" Text="Dye"/><LineBreak/><Run Language="fr-fr"/></TextBlock>
+
         <!--Link Equipment-->
         <Label x:Name="Weapon_Link" Content="Link" HorizontalAlignment="Left" Margin="186,191,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Weapon_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
         <Label x:Name="Head_Link" Content="Link" HorizontalAlignment="Left" Margin="186,276,0,0" VerticalAlignment="Top" Height="23" Width="26" FontSize="9" MouseDown="Head_MouseDown" Foreground="Blue" Cursor="Hand" Visibility="Hidden"/>
