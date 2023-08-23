@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Security.Policy;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -13,6 +14,8 @@ namespace FFXIVFashionReport
 {
     public partial class MainWindow : Window
     {
+        private bool isFirstLoad { get; set; } = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +43,79 @@ namespace FFXIVFashionReport
             Dye_Ring1_Filtered.ItemsSource = Dye_Ring1_Results;
             Dye_Ring2_Filtered.ItemsSource = Dye_Ring2_Results;
         }
+
+        #region Language
+        private async void Language_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (isFirstLoad)
+            {
+                isFirstLoad = false;
+                return;
+            }
+
+            if(cmbLanguages.SelectedItem as ComboBoxItem is null)
+            {
+                return;
+            }
+
+            string language = (cmbLanguages.SelectedItem as ComboBoxItem).Content.ToString();
+
+            if (language == "en")
+            {
+                language = "En";
+                await ChangeLanguageText(language);
+            }
+            if (language == "fr")
+            {
+                language = "Fr";
+                await ChangeLanguageText(language);
+            }
+            if (language == "de")
+            {
+                language = "De";
+                await ChangeLanguageText(language);
+            }
+            if (language == "ja")
+            {
+                language = "Ja";
+                await ChangeLanguageText(language);
+            }
+        }
+
+        private async Task ChangeLanguageText(string language)
+        {
+            var listName = new Dictionary<string, string>();
+
+            listName = await GetItemInfoDictionaryAsync(_Weapon_selectedItem, "Weapon", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Head_selectedItem, "Head", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Body_selectedItem, "Body", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Hands_selectedItem, "Hands", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Legs_selectedItem, "Legs", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Feet_selectedItem, "Feet", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Earrings_selectedItem, "Earrings", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Necklace_selectedItem, "Necklace", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Bracelets_selectedItem, "Bracelets", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Ring1_selectedItem, "Ring1", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Ring2_selectedItem, "Ring2", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Weapon_selectedItem, "Dye_Weapon", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Head_selectedItem, "Dye_Head", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Body_selectedItem, "Dye_Body", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Hands_selectedItem, "Dye_Hands", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Legs_selectedItem, "Dye_Legs", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Feet_selectedItem, "Dye_Feet", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Earrings_selectedItem, "Dye_Earrings", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Necklace_selectedItem, "Dye_Necklace", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Bracelets_selectedItem, "Dye_Bracelets", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Ring1_selectedItem, "Dye_Ring1", listName, false);
+            listName = await GetItemInfoDictionaryAsync(_Dye_Ring2_selectedItem, "Dye_Ring2", listName, false);
+
+
+            foreach (var equipment in EquipmentList)
+            {
+                UpdateTextLanguage(listName, equipment, language);
+            }
+        }
+        #endregion
 
         #region Weapon
         private async void Weapon_KeyDown(object sender, KeyEventArgs e)

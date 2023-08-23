@@ -13,7 +13,7 @@ namespace FFXIVFashionReport
 {
     public partial class MainWindow
     {
-        private async Task<Dictionary<string, string>> GetItemInfoDictionaryAsync(Item selectedItem, string typeName, Dictionary<string, string> listName)
+        private async Task<Dictionary<string, string>> GetItemInfoDictionaryAsync(Item selectedItem, string typeName, Dictionary<string, string> listName, bool setVisibility = true)
         {
             if (selectedItem != null)
             {
@@ -22,12 +22,18 @@ namespace FFXIVFashionReport
                 listName.Add($"{typeName}De", itemInfo.Name_de);
                 listName.Add($"{typeName}Ja", itemInfo.Name_ja);
                 listName.Add($"{typeName}En", itemInfo.Name_en);
-                SetXButtonVisibility(typeName, Visibility.Collapsed);
-                SetLinkVisibility(typeName, Visibility.Collapsed);
+                if (setVisibility )
+                {
+                    SetXButtonVisibility(typeName, Visibility.Collapsed);
+                    SetLinkVisibility(typeName, Visibility.Collapsed);
+                }
             }
             else
             {
-                SetVisibility(typeName, Visibility.Collapsed);
+                if(setVisibility)
+                {
+                    SetVisibility(typeName, Visibility.Collapsed);
+                }
             }
 
             return listName;
@@ -77,6 +83,8 @@ namespace FFXIVFashionReport
 
         private async void MakeFashionReport_btnRemove_Click(object sender, RoutedEventArgs e)
         {
+            var getSelectedLanguage = cmbLanguages.SelectedIndex;
+
             var listName = new Dictionary<string, string>();
 
             listName = await GetItemInfoDictionaryAsync(_Weapon_selectedItem, "Weapon", listName);
@@ -117,6 +125,8 @@ namespace FFXIVFashionReport
             Make_Fashion_Report.Visibility = Visibility.Visible;
             cmbLanguages.Visibility = Visibility.Visible;
             LanguageTextBlock.Visibility = Visibility.Visible;
+
+            cmbLanguages.SelectedValue = getSelectedLanguage;
         }
 
         private async Task CaptureScreenshotAsync(Dictionary<string, string> listName)

@@ -854,7 +854,7 @@
         <!--#endregion-->
 
         <!--Languages-->
-        <ComboBox x:Name="cmbLanguages" SelectedIndex="0" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="41">
+        <ComboBox x:Name="cmbLanguages" SelectedIndex="0" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Width="41" SelectionChanged="Language_SelectionChanged">
             <ComboBoxItem Content="en"/>
             <ComboBoxItem Content="fr"/>
             <ComboBoxItem Content="de"/>
