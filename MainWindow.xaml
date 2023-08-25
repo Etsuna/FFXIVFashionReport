@@ -41,7 +41,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Weapon_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Weapon_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Weapon_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -79,7 +79,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Head_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -117,7 +117,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Body_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -155,7 +155,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Hands_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -193,7 +193,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Legs_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -231,7 +231,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Feet_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Feet_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Feet_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -269,7 +269,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Earrings_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -307,7 +307,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Necklace_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -345,7 +345,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Bracelets_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -383,7 +383,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Ring1_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -421,7 +421,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed">
+        <StackPanel x:Name="Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Ring2_MouseLeftButtonDown">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -460,7 +460,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Weapon_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Weapon_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Weapon_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -498,7 +498,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Head_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Head_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -536,7 +536,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Body_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Body_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -574,7 +574,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Hands_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Hands_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -612,7 +612,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Legs_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Legs_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -650,7 +650,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Feet_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Feet_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Feet_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -688,7 +688,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Earrings_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Earrings_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -726,7 +726,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Necklace_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Necklace_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -764,7 +764,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Bracelets_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Bracelets_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -802,7 +802,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Ring1_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Ring1_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -840,7 +840,7 @@
                 </ListView.View>
             </ListView>
         </Popup>
-        <StackPanel x:Name="Dye_Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" Height="Auto">
+        <StackPanel x:Name="Dye_Ring2_selectedResultPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="0 0 0 10" Visibility="Collapsed" MouseLeftButtonDown="Dye_Ring2_MouseLeftButtonDown" Height="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

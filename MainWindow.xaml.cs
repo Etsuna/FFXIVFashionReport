@@ -148,6 +148,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Weapon_selectedItem);
         }
+
+        private void Weapon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Weapon_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Weapon_txtSelectedName.Text);
+        }
         #endregion
 
         #region Head
@@ -179,6 +188,15 @@ namespace FFXIVFashionReport
         private void Head_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Head_selectedItem);
+        }
+
+        private void Head_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Head_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Head_txtSelectedName.Text);
         }
         #endregion
 
@@ -212,6 +230,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Weapon_selectedItem);
         }
+
+        private void Body_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Body_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Body_txtSelectedName.Text);
+        }
         #endregion
 
         #region Hands
@@ -243,6 +270,15 @@ namespace FFXIVFashionReport
         private void Hands_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Hands_selectedItem);
+        }
+
+        private void Hands_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Hands_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Hands_txtSelectedName.Text);
         }
         #endregion
 
@@ -276,6 +312,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Legs_selectedItem);
         }
+
+        private void Legs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Legs_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Legs_txtSelectedName.Text);
+        }
         #endregion
 
         #region Feet
@@ -307,6 +352,15 @@ namespace FFXIVFashionReport
         private void Feet_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Feet_selectedItem);
+        }
+
+        private void Feet_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Feet_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Feet_txtSelectedName.Text);
         }
         #endregion
 
@@ -340,6 +394,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Earrings_selectedItem);
         }
+
+        private void Earrings_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Earrings_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Earrings_txtSelectedName.Text);
+        }
         #endregion
 
         #region Necklace
@@ -371,6 +434,15 @@ namespace FFXIVFashionReport
         private void Necklace_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Necklace_selectedItem);
+        }
+
+        private void Necklace_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Necklace_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Necklace_txtSelectedName.Text);
         }
         #endregion
 
@@ -404,6 +476,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Bracelets_selectedItem);
         }
+
+        private void Bracelets_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Bracelets_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Bracelets_txtSelectedName.Text);
+        }
         #endregion
 
         #region Ring1
@@ -436,6 +517,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Ring1_selectedItem);
         }
+
+        private void Ring1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Ring1_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Ring1_txtSelectedName.Text);
+        }
         #endregion
 
         #region Ring2
@@ -467,6 +557,15 @@ namespace FFXIVFashionReport
         private void Ring2_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Ring2_selectedItem);
+        }
+
+        private void Ring2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Ring2_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Ring2_txtSelectedName.Text);
         }
         #endregion
 
@@ -501,6 +600,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Dye_Weapon_selectedItem);
         }
+
+        private void Dye_Weapon_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Weapon_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Weapon_txtSelectedName.Text);
+        }
         #endregion
 
         #region Dye_Head
@@ -532,6 +640,15 @@ namespace FFXIVFashionReport
         private void Dye_Head_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Dye_Head_selectedItem);
+        }
+
+        private void Dye_Head_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Head_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Head_txtSelectedName.Text);
         }
         #endregion
 
@@ -565,6 +682,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Dye_Body_selectedItem);
         }
+
+        private void Dye_Body_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Body_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Body_txtSelectedName.Text);
+        }
         #endregion
 
         #region Dye_Hands
@@ -596,6 +722,15 @@ namespace FFXIVFashionReport
         private void Dye_Hands_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Dye_Hands_selectedItem);
+        }
+
+        private void Dye_Hands_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Hands_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Hands_txtSelectedName.Text);
         }
         #endregion
 
@@ -629,6 +764,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Dye_Legs_selectedItem);
         }
+
+        private void Dye_Legs_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Legs_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Legs_txtSelectedName.Text);
+        }
         #endregion
 
         #region Dye_Feet
@@ -660,6 +804,15 @@ namespace FFXIVFashionReport
         private void Dye_Feet_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Dye_Feet_selectedItem);
+        }
+
+        private void Dye_Feet_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Feet_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Feet_txtSelectedName.Text);
         }
         #endregion
 
@@ -693,6 +846,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Dye_Earrings_selectedItem);
         }
+
+        private void Dye_Earrings_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Earrings_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Earrings_txtSelectedName.Text);
+        }
         #endregion
 
         #region Dye_Necklace
@@ -724,6 +886,15 @@ namespace FFXIVFashionReport
         private void Dye_Necklace_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Dye_Necklace_selectedItem);
+        }
+
+        private void Dye_Necklace_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Necklace_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Necklace_txtSelectedName.Text);
         }
         #endregion
 
@@ -757,6 +928,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Dye_Bracelets_selectedItem);
         }
+
+        private void Dye_Bracelets_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Bracelets_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Bracelets_txtSelectedName.Text);
+        }
         #endregion
 
         #region Dye_Ring1
@@ -789,6 +969,15 @@ namespace FFXIVFashionReport
         {
             OpenLink(_Dye_Ring1_selectedItem);
         }
+
+        private void Dye_Ring1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Ring1_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Ring1_txtSelectedName.Text);
+        }
         #endregion
 
         #region Dye_Ring2
@@ -820,6 +1009,15 @@ namespace FFXIVFashionReport
         private void Dye_Ring2_MouseDown(object sender, MouseButtonEventArgs e)
         {
             OpenLink(_Dye_Ring2_selectedItem);
+        }
+
+        private void Dye_Ring2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            // Copy the text to clipboard
+            Clipboard.SetText(Dye_Ring2_txtSelectedName.Text);
+
+            // Show a message to indicate successful copy
+            MessageBox.Show("Text copied to clipboard: " + Dye_Ring2_txtSelectedName.Text);
         }
         #endregion
 
